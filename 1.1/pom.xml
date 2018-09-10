@@ -21,7 +21,7 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>25.0-jre</version>
-        </dependency>
+         </dependency>
     </dependencies>
 
         <build>
@@ -29,7 +29,7 @@
 
             <plugins>
 
-                <plugin>
+                <!--plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.0.0</version>
@@ -40,7 +40,7 @@
                             </manifest>
                         </archive>
                     </configuration>
-                </plugin>
+                </plugin-->
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -60,6 +60,56 @@
                         <descriptorRefs>
                             <descriptorRef>jar-with-dependencies</descriptorRef>
                         </descriptorRefs>
+                        <archive>
+                            <manifest>
+                                <mainClass>home.Main</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.github.wvengen</groupId>
+                    <artifactId>proguard-maven-plugin</artifactId>
+                    <version>2.0.14</version>
+                    <executions>
+                        <execution>
+                            <id>obfuscation-packaging</id>
+                            <phase>package</phase>
+                            <goals><goal>proguard</goal></goals>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>net.sf.proguard</groupId>
+                            <artifactId>proguard-base</artifactId>
+                            <version>6.0.3</version>
+                            <scope>runtime</scope>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <proguardVersion>6.0.3</proguardVersion>
+                        <obfuscate>true</obfuscate>
+                        <!--attach>true</attach-->
+                        <!--appendClassifier>false</appendClassifier>
+                        <addMavenDescriptor>true</addMavenDescriptor-->
+                        <injar>home_1.1_maven-jar-with-dependencies.jar</injar>
+                        <outjar>release.jar</outjar>
+                        <injarNotExistsSkip>true</injarNotExistsSkip>
+                         <options>
+                                <option>-verbose</option>
+                                <!--option>-dontobfuscate</option-->
+                                <option>-dontoptimize</option>
+                                <option>-keep class org.apache.** { *; }</option>
+                                <option>-keep public class home.Main {
+                                    public static void main(java.lang.String[]);
+                                    }</option>
+                                <option>-dontwarn</option>
+                          </options>
+                          <libs>
+                            <lib>${java.home}/lib/rt.jar</lib>
+                            <lib>${java.home}/lib/jsse.jar</lib>
+                        </libs>
                         <archive>
                             <manifest>
                                 <mainClass>home.Main</mainClass>
