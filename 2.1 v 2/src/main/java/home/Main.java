@@ -9,8 +9,7 @@ import java.util.Calendar;
 public class Main {
 
     public int a;
-    public Main link;
-    public String str;
+    public String str=null;
     public String str1;
     public int [] array;
     public int [] array1;
@@ -22,7 +21,6 @@ public class Main {
         a = 5;
         str = "";
         str1="String + String + String";
-        link = null;
         list = new ArrayList<>();
         list1 = new ArrayList<>();
         list1.add("Sun");
@@ -56,7 +54,25 @@ public class Main {
         System.out.println();
         //printObjectSize(example.array);
 
-        Main example = null;
+        Main example = new Main();
+
+        Class<?> cls = example.getClass();
+        Field[] fields = cls.getFields();
+        try {
+            for (Field field : fields) {
+                System.out.println("Class name : " + field.getName());
+                System.out.println("Class type : " + field.getType().getName());
+                //Field fld1 = cls.getField(field.getName());
+                Object value = (Object) cls.getField(field.getName()).get(example);
+                printObjectSize(value);
+            }
+        }
+        catch (NoSuchFieldException | IllegalAccessException nsfe) {
+            throw new RuntimeException(nsfe);
+        }
+    }
+
+        /*Main example = null;
         try {
             Class clazz = Class.forName(Main.class.getName());
             example = (Main) clazz.newInstance();
@@ -82,8 +98,7 @@ public class Main {
         //printObjectSize(example.array);
         System.out.println("int[1000], size=" + MemoryCounter.instance().getInstrumentation()
                 .getObjectSize(example.array1));
-        //printObjectSize(example.array1);
-    }
+        //printObjectSize(example.array1);*/
 
     public static void printObjectSize(Object obj) {
         System.out.println(String.format("%s, size=%s", obj.getClass()
