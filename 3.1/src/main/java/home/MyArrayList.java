@@ -51,7 +51,7 @@ public class MyArrayList <T> implements List <T> {
         return null;
     }
 
-    /*public Iterator<T> iterator() {
+   /* public Iterator<T> iterator() {
         return new MyArrayIterator<T>();
     }*/
 
@@ -96,7 +96,7 @@ public class MyArrayList <T> implements List <T> {
         return elementData(index);
     }
 
-    public T set(int index, T element) {
+    public T set(int index, Object element) {
         Objects.checkIndex(index, size);
         T oldValue = elementData(index);
         elementData[index] = element;
@@ -152,16 +152,16 @@ public class MyArrayList <T> implements List <T> {
         return growCapacity(size + 1);
     }
 
-   public static <T> void copy(List<? super T> dest, List<? extends T> src) {
+   /*public static <T> void copy(List<? super T> dest, List<? extends T> src) {
         int srcSize = src.size();
         if (srcSize > dest.size())
             throw new IndexOutOfBoundsException("Source does not fit in dest");
 
         for (int i=0; i<srcSize; i++)
             dest.set(i, src.get(i));
-        }
+        }*/
 
-     public static <T> void sort(List<T> list, Comparator<? super T> c) {
+    /* public static <T> void sort(List<T> list, Comparator<? super T> c) {
        Object [] a= list.toArray();
        Arrays.sort(a,(Comparator) c);
        for (int i=0; i<a.length;i++)
@@ -170,7 +170,7 @@ public class MyArrayList <T> implements List <T> {
 
    public static <T extends Comparable<? super T>> void sort(List<T> list) {
        MyArrayList.sort(list, null);
-   }
+   }*/
 
 
     public boolean addAll(int index, Collection<? extends T> c)throws UnsupportedOperationException {
@@ -221,14 +221,17 @@ public class MyArrayList <T> implements List <T> {
         return 0;
     }
 
-    public ListIterator<T> listIterator()  throws UnsupportedOperationException {
+    /*public ListIterator<T> listIterator()  throws UnsupportedOperationException {
         new UnsupportedOperationException("not implemented");
         return null;
+    }*/
+
+    public ListIterator<T> listIterator()   {
+        return new MyArrayListIterator(0);
     }
 
-    public ListIterator<T> listIterator(int index) throws UnsupportedOperationException {
-        new UnsupportedOperationException("not implemented");
-        return null;
+    public ListIterator<T> listIterator(int index) {
+        return new MyArrayListIterator(index);
     }
     /*public ListIterator<T> listIterator(int index) {
         rangeCheckForAdd(index);
@@ -238,5 +241,103 @@ public class MyArrayList <T> implements List <T> {
     public List<T> subList(int fromIndex, int toIndex) throws UnsupportedOperationException {
         new UnsupportedOperationException("not implemented");
         return null;
+    }
+
+    /*private class MyArrayIterator <T> implements Iterator<T> {
+        int currentPos=0;
+        T[] values;
+
+        MyArrayIterator() {
+            this.values=values;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return currentPos < values.length && values[currentPos] != null;
+        }
+
+       @Override
+        public T next() {
+
+            int i = currentPos;
+            if (i >= size)
+                throw new NoSuchElementException();
+            return values[currentPos++];
+        }
+
+        public Iterator<T> iterator() {
+            return this;
+        }
+    }*/
+
+    private class MyArrayListIterator <T> implements ListIterator<T> {
+        int index;
+        int lastRet = -1;
+
+        MyArrayListIterator(int index) {
+            index=this.index;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return index != size;
+        }
+
+        @Override
+        public T next() {
+
+            int i = index;
+            if (i >= size)
+                throw new NoSuchElementException();
+            Object[] elementData = MyArrayList.this.elementData;
+            if (i >= elementData.length)
+                throw new ConcurrentModificationException();
+            index = i + 1;
+            return (T) elementData[lastRet = i];
+        }
+
+        @Override
+        public boolean hasPrevious() {
+            return false;
+        }
+
+        @Override
+        public T previous() {
+            return null;
+        }
+
+        @Override
+        public int nextIndex() {
+            return 0;
+        }
+
+        @Override
+        public int previousIndex() {
+            return 0;
+        }
+
+        @Override
+        public void remove() {
+
+        }
+
+        @Override
+        public void set(Object t) {
+            if (lastRet < 0)
+                throw new IllegalStateException();
+
+            try {
+                MyArrayList.this.set(lastRet, t);
+            } catch (IndexOutOfBoundsException ex) {
+                throw new ConcurrentModificationException();
+            }
+        }
+
+        @Override
+        public void add(T t) {
+
+        }
+
+
     }
 }
