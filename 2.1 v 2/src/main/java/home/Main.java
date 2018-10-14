@@ -10,17 +10,19 @@ public class Main {
 
     public int a;
     //public byte b;
-    public String str=null;
-    public String str1;
-    public int [] array = {1,2,3, 4 ,4};
-    public int [] array1;
-    public ArrayList <String> list;
-    public ArrayList <String> list1;
+    public int c;
+    //public String str=null;
+    //public String str1;
+    //public int [] array = {1,2,3, 4 ,4};
+    //public int [] array1;
+    //public ArrayList <String> list;
+    //public ArrayList <String> list1;
 
 
     public Main() {
         int a=5;
         //b = 3;
+        c=10286468;
         //str = "";
         //str1="String + String + String";
         //list = new ArrayList<>();
@@ -28,8 +30,8 @@ public class Main {
         //list1.add("Sun");
         //list1.add("Moon");
         //list1.add("Yellow");
-        int [] array;
-        array1 = new int [1000];
+        //int [] array;
+        //array1 = new int [1000];
     }
 
     public static void main(String[] args) {

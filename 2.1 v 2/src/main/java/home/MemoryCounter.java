@@ -9,8 +9,6 @@ import java.util.List;
 import java.lang.*;
 
 
-
-
 public class MemoryCounter {
 
         private static MemoryCounter memoryCounter;
@@ -39,8 +37,10 @@ public class MemoryCounter {
                 return instrumentation;
         }
 
+        public static List<Object> calculated = new ArrayList<>();
+
         public static void printObjectSize(Object obj) {
-                List<Object> calculated=new ArrayList<>();
+
 
                 if (obj.getClass().isArray()) {
 
@@ -76,6 +76,8 @@ public class MemoryCounter {
                                                         .getSimpleName(), MemoryCounter.getSize(value)));
                                                 System.out.println();}
                                         }
+                                        /*else {
+                                            System.out.println("Already calculated");}*/
                                 }
                         } catch (NoSuchFieldException | IllegalAccessException nsfe) {
                                 throw new RuntimeException(nsfe);
