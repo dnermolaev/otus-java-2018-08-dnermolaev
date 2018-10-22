@@ -13,9 +13,8 @@ import java.lang.reflect.Method;
 
 public class ExampleClassTest {
 
-
-    public static void test1 (String className) throws ClassNotFoundException, IllegalAccessException, InstantiationException,
-            InvocationTargetException {
+    public static void test1 (String className) throws ClassNotFoundException, IllegalAccessException,
+            InstantiationException, InvocationTargetException, NoSuchMethodException {
         System.out.println();
         System.out.println("Execution with className");
         Class<?> myExample = Class.forName(className);
@@ -23,38 +22,77 @@ public class ExampleClassTest {
         Object obj1 = myExample.newInstance();
 
         Method[] methods = myExample.getMethods();
+
+        Annotation[] annotations = new Annotation[0];
+        Method before = null;
+        Method test = null;
+        Method after = null;
+
+        try {
+
         for (Method method : methods) {
 
-            Annotation[] annotations = method.getDeclaredAnnotations();
+            annotations = method.getDeclaredAnnotations();
+
             if (annotations.length > 0) {
+
                 for (Annotation annotation1 : annotations) {
                     if (annotation1 instanceof Before) {
-                        method.invoke(obj1);
-
+                        before = method;
                     }
                     if (annotation1 instanceof Test) {
-                        method.invoke(obj1);
+                        test = method;
                     }
-
                     if (annotation1 instanceof After) {
-                        method.invoke(obj1);
+                        after = method;
                     }
                 }
             }
         }
+            if (annotations.length > 0)
+                    try {
+                        before.invoke(myExample.newInstance());}
+                     catch (NullPointerException e) {
+                        System.out.println("There is no method with @Before annotation");
+                    }
+                    try {
+                        test.invoke(myExample.newInstance());
+                    }
+                    catch (InvocationTargetException e) {
+                        System.out.println("Test failed");
+                    }
+                    catch (NullPointerException e) {
+                        System.out.println("There is no method with @Test annotation");
+                    }
+                        finally {
+                        after.invoke(myExample.newInstance());
+                    }
+        }
+        catch (NullPointerException e) {
+            System.out.println("There is no method with @After annotation");
+        }
+        catch (InvocationTargetException e){
+            System.out.println(e);
+        }
     }
 
+
     public static void test2 (String packageName) throws IOException, ClassNotFoundException, InvocationTargetException,
-            InstantiationException, IllegalAccessException {
-        System.out.println("Execution with packageName");
-       Package pack = Package.getPackage(packageName);
-       ImmutableSet classes = ClassPath.from(ExampleClassTest.class.getClassLoader()).getAllClasses();
-       Object [] classNames =classes.toArray();
+            InstantiationException, IllegalAccessException, NoSuchMethodException {
+        try {
+            System.out.println("Execution with packageName");
+            Package pack = Package.getPackage(packageName);
+            ImmutableSet classes = ClassPath.from(ExampleClassTest.class.getClassLoader()).getAllClasses();
+            Object[] classNames = classes.toArray();
 
-       for (Object o:classNames) {
-          if(o.toString().contains(packageName))
-              test1(o.toString());
-       }
+            for (Object o : classNames) {
+                if (o.toString().contains(packageName))
+                    test1(o.toString());
+            }
 
+        } catch (InvocationTargetException e) {
+            System.out.println(e);
+            System.out.println(e.getCause().getMessage());
+        }
     }
 }

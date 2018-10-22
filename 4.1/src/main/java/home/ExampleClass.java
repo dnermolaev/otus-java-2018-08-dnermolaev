@@ -20,20 +20,32 @@ public class ExampleClass {
     }
 
     @Test
-    public void test () throws ClassNotFoundException, IllegalArgumentException, IllegalAccessException{
-        ExampleClass ex = new ExampleClass();
-        int result = ex.sum(10, 5);
-        assertEquals (15, result);
+    public void TestMethod () throws ClassNotFoundException, IllegalArgumentException, IllegalAccessException{
+        try {
+            ExampleClass ex = new ExampleClass();
+            int result = ex.sum(10, 5);
+            assertEquals(13, result);
+        } catch (IllegalArgumentException e){throw new IllegalAccessException(e.getCause().getMessage());
+        }
     }
 
     @Before
-    public void BeforeMethod (){
-        System.out.println("Result of BeforeMethod execution");
+    public void BeforeMethod () throws Exception {
+        try {
+            System.out.println("Result of BeforeMethod execution");
+        } catch (Exception e) {
+            throw new Exception(e.getCause().getMessage());
+        }
     }
 
     @After
-    public void AfterMethod (){
-        System.out.println("Result of AfterMethod execution");
+    public void AfterMethod () throws Exception{
+        try{
+            System.out.println("Result of AfterMethod execution");
+        } catch (Exception e){
+            throw new Exception(e.getCause().getMessage());
+        }
+
     }
 
 }

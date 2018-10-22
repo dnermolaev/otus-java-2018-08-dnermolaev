@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException,
-            InstantiationException, IllegalAccessException, IOException {
+            InstantiationException, IllegalAccessException, IOException, NoSuchMethodException {
 
         //ExampleClassTest.test1("home.ExampleClass");
         ExampleClassTest.test2("home");
