@@ -4,10 +4,9 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException, InvocationTargetException,
-            InstantiationException, IllegalAccessException, IOException, NoSuchMethodException {
+    public static void main(String[] args) throws Exception {
 
-        //ExampleClassTest.test1("home.ExampleClass");
-        ExampleClassTest.test2("home");
+        //ExampleClassTest.testClass("home.ExampleClass");
+        ExampleClassTest.testPackage("home");
     }
 }

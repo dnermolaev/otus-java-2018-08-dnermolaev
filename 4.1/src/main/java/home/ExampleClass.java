@@ -30,22 +30,13 @@ public class ExampleClass {
     }
 
     @Before
-    public void BeforeMethod () throws Exception {
-        try {
+    public void BeforeMethod () {
             System.out.println("Result of BeforeMethod execution");
-        } catch (Exception e) {
-            throw new Exception(e.getCause().getMessage());
-        }
     }
 
     @After
-    public void AfterMethod () throws Exception{
-        try{
+    public void AfterMethod () {
             System.out.println("Result of AfterMethod execution");
-        } catch (Exception e){
-            throw new Exception(e.getCause().getMessage());
         }
 
     }
-
-}
