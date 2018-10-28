@@ -1,0 +1,616 @@
+[0.088s][info][gc] Using Concurrent Mark Sweep
+[0.089s][info][gc,heap,coops] Heap address: 0x00000000f8000000, size: 128 MB, Compressed Oops mode: 32-bit
+[2.236s][info][gc,start     ] GC(0) Pause Young (Allocation Failure)
+[2.237s][info][gc,task      ] GC(0) Using 4 workers of 4 for evacuation
+[2.454s][info][gc,heap      ] GC(0) ParNew: 24878K->3263K(29504K)
+[2.454s][info][gc,heap      ] GC(0) CMS: 0K->13290K(65536K)
+[2.454s][info][gc,metaspace ] GC(0) Metaspace: 10337K->10337K(1058816K)
+[2.454s][info][gc           ] GC(0) Pause Young (Allocation Failure) 24M->16M(92M) 217.830ms
+[2.454s][info][gc,cpu       ] GC(0) User=0.69s Sys=0.03s Real=0.22s
+[14.451s][info][gc,start     ] GC(1) Pause Young (Allocation Failure)
+[14.451s][info][gc,task      ] GC(1) Using 4 workers of 4 for evacuation
+[14.500s][info][gc,heap      ] GC(1) ParNew: 29503K->3264K(29504K)
+[14.500s][info][gc,heap      ] GC(1) CMS: 13290K->27647K(65536K)
+[14.500s][info][gc,metaspace ] GC(1) Metaspace: 10906K->10906K(1058816K)
+[14.500s][info][gc           ] GC(1) Pause Young (Allocation Failure) 41M->30M(92M) 49.719ms
+[14.500s][info][gc,cpu       ] GC(1) User=0.13s Sys=0.03s Real=0.05s
+[26.517s][info][gc,start     ] GC(2) Pause Young (Allocation Failure)
+[26.518s][info][gc,task      ] GC(2) Using 4 workers of 4 for evacuation
+[26.633s][info][gc,heap      ] GC(2) ParNew: 25721K->3264K(29504K)
+[26.633s][info][gc,heap      ] GC(2) CMS: 27647K->46361K(65536K)
+[26.633s][info][gc,metaspace ] GC(2) Metaspace: 10907K->10907K(1058816K)
+[26.633s][info][gc           ] GC(2) Pause Young (Allocation Failure) 52M->48M(92M) 115.632ms
+[26.633s][info][gc,cpu       ] GC(2) User=0.42s Sys=0.02s Real=0.12s
+[26.637s][info][gc,start     ] GC(3) Pause Initial Mark
+[26.658s][info][gc           ] GC(3) Pause Initial Mark 55M->55M(92M) 20.554ms
+[26.658s][info][gc,cpu       ] GC(3) User=0.05s Sys=0.00s Real=0.02s
+[26.658s][info][gc           ] GC(3) Concurrent Mark
+[26.843s][info][gc           ] GC(3) Concurrent Mark 184.855ms
+[26.843s][info][gc,cpu       ] GC(3) User=0.30s Sys=0.00s Real=0.18s
+[26.843s][info][gc           ] GC(3) Concurrent Preclean
+[26.844s][info][gc           ] GC(3) Concurrent Preclean 0.319ms
+[26.844s][info][gc,cpu       ] GC(3) User=0.00s Sys=0.00s Real=0.00s
+[26.844s][info][gc           ] GC(3) Concurrent Abortable Preclean
+[32.003s][info][gc           ] GC(3) Concurrent Abortable Preclean 5158.879ms
+[32.003s][info][gc,cpu       ] GC(3) User=6.63s Sys=0.02s Real=5.16s
+[32.003s][info][gc,start     ] GC(3) Pause Remark
+[32.064s][info][gc           ] GC(3) Pause Remark 56M->56M(92M) 61.240ms
+[32.065s][info][gc,cpu       ] GC(3) User=0.14s Sys=0.03s Real=0.06s
+[32.065s][info][gc           ] GC(3) Concurrent Sweep
+[32.185s][info][gc           ] GC(3) Concurrent Sweep 119.680ms
+[32.185s][info][gc,cpu       ] GC(3) User=0.20s Sys=0.00s Real=0.12s
+[32.185s][info][gc           ] GC(3) Concurrent Reset
+[32.185s][info][gc           ] GC(3) Concurrent Reset 0.430ms
+[32.186s][info][gc,cpu       ] GC(3) User=0.00s Sys=0.00s Real=0.00s
+[32.186s][info][gc,heap      ] GC(3) Old: 46361K->38916K(65536K)
+[34.185s][info][gc,start     ] GC(4) Pause Initial Mark
+[34.242s][info][gc           ] GC(4) Pause Initial Mark 49M->49M(92M) 56.781ms
+[34.242s][info][gc,cpu       ] GC(4) User=0.11s Sys=0.00s Real=0.06s
+[34.242s][info][gc           ] GC(4) Concurrent Mark
+[34.455s][info][gc           ] GC(4) Concurrent Mark 212.742ms
+[34.455s][info][gc,cpu       ] GC(4) User=0.38s Sys=0.00s Real=0.21s
+[34.455s][info][gc           ] GC(4) Concurrent Preclean
+[34.456s][info][gc           ] GC(4) Concurrent Preclean 0.535ms
+[34.456s][info][gc,cpu       ] GC(4) User=0.00s Sys=0.00s Real=0.00s
+[34.456s][info][gc           ] GC(4) Concurrent Abortable Preclean
+[39.609s][info][gc           ] GC(4) Concurrent Abortable Preclean 5153.193ms
+[39.610s][info][gc,cpu       ] GC(4) User=6.33s Sys=0.03s Real=5.15s
+[39.610s][info][gc,start     ] GC(4) Pause Remark
+[39.651s][info][gc           ] GC(4) Pause Remark 62M->62M(92M) 41.569ms
+[39.652s][info][gc,cpu       ] GC(4) User=0.16s Sys=0.00s Real=0.04s
+[39.652s][info][gc           ] GC(4) Concurrent Sweep
+[39.727s][info][gc           ] GC(4) Concurrent Sweep 75.478ms
+[39.727s][info][gc,cpu       ] GC(4) User=0.13s Sys=0.00s Real=0.08s
+[39.727s][info][gc           ] GC(4) Concurrent Reset
+[39.728s][info][gc           ] GC(4) Concurrent Reset 0.400ms
+[39.728s][info][gc,cpu       ] GC(4) User=0.00s Sys=0.00s Real=0.00s
+[39.728s][info][gc,heap      ] GC(4) Old: 38916K->34168K(65536K)
+[41.729s][info][gc,start     ] GC(5) Pause Initial Mark
+[41.809s][info][gc           ] GC(5) Pause Initial Mark 57M->57M(92M) 80.840ms
+[41.810s][info][gc,cpu       ] GC(5) User=0.19s Sys=0.00s Real=0.08s
+[41.810s][info][gc           ] GC(5) Concurrent Mark
+[42.114s][info][gc           ] GC(5) Concurrent Mark 303.999ms
+[42.114s][info][gc,cpu       ] GC(5) User=0.52s Sys=0.00s Real=0.30s
+[42.114s][info][gc           ] GC(5) Concurrent Preclean
+[42.114s][info][gc           ] GC(5) Concurrent Preclean 0.442ms
+[42.114s][info][gc,cpu       ] GC(5) User=0.00s Sys=0.00s Real=0.00s
+[42.115s][info][gc           ] GC(5) Concurrent Abortable Preclean
+[47.278s][info][gc           ] GC(5) Concurrent Abortable Preclean 5163.647ms
+[47.278s][info][gc,cpu       ] GC(5) User=6.63s Sys=0.00s Real=5.16s
+[47.280s][info][gc,start     ] GC(5) Pause Remark
+[47.335s][info][gc           ] GC(5) Pause Remark 57M->57M(92M) 55.683ms
+[47.335s][info][gc,cpu       ] GC(5) User=0.17s Sys=0.00s Real=0.06s
+[47.335s][info][gc           ] GC(5) Concurrent Sweep
+[47.421s][info][gc           ] GC(5) Concurrent Sweep 85.979ms
+[47.422s][info][gc,cpu       ] GC(5) User=0.14s Sys=0.00s Real=0.09s
+[47.422s][info][gc           ] GC(5) Concurrent Reset
+[47.422s][info][gc           ] GC(5) Concurrent Reset 0.255ms
+[47.422s][info][gc,cpu       ] GC(5) User=0.00s Sys=0.00s Real=0.00s
+[47.422s][info][gc,heap      ] GC(5) Old: 34168K->34168K(65536K)
+[49.422s][info][gc,start     ] GC(6) Pause Initial Mark
+[49.485s][info][gc           ] GC(6) Pause Initial Mark 57M->57M(92M) 62.135ms
+[49.485s][info][gc,cpu       ] GC(6) User=0.19s Sys=0.00s Real=0.06s
+[49.485s][info][gc           ] GC(6) Concurrent Mark
+[49.687s][info][gc           ] GC(6) Concurrent Mark 202.516ms
+[49.688s][info][gc,cpu       ] GC(6) User=0.38s Sys=0.00s Real=0.20s
+[49.688s][info][gc           ] GC(6) Concurrent Preclean
+[49.688s][info][gc           ] GC(6) Concurrent Preclean 0.640ms
+[49.688s][info][gc,cpu       ] GC(6) User=0.00s Sys=0.00s Real=0.00s
+[49.688s][info][gc           ] GC(6) Concurrent Abortable Preclean
+[52.412s][info][gc,start     ] GC(7) Pause Young (Allocation Failure)
+[52.412s][info][gc,task      ] GC(7) Using 4 workers of 4 for evacuation
+[52.445s][info][gc           ] GC(6) Concurrent Abortable Preclean 2756.113ms
+[52.445s][info][gc,cpu       ] GC(6) User=3.72s Sys=0.00s Real=2.76s
+[52.549s][info][gc,heap      ] GC(7) ParNew: 29504K->3264K(29504K)
+[52.549s][info][gc,heap      ] GC(7) CMS: 34168K->52730K(65536K)
+[52.549s][info][gc,metaspace ] GC(7) Metaspace: 10907K->10907K(1058816K)
+[52.549s][info][gc           ] GC(7) Pause Young (Allocation Failure) 62M->54M(92M) 137.845ms
+[52.550s][info][gc,cpu       ] GC(7) User=0.44s Sys=0.02s Real=0.14s
+[52.550s][info][gc,start     ] GC(6) Pause Remark
+[52.607s][info][gc           ] GC(6) Pause Remark 55M->55M(92M) 57.122ms
+[52.607s][info][gc,cpu       ] GC(6) User=0.17s Sys=0.00s Real=0.06s
+[52.607s][info][gc           ] GC(6) Concurrent Sweep
+[52.717s][info][gc           ] GC(6) Concurrent Sweep 109.751ms
+[52.717s][info][gc,cpu       ] GC(6) User=0.19s Sys=0.00s Real=0.11s
+[52.718s][info][gc           ] GC(6) Concurrent Reset
+[52.718s][info][gc           ] GC(6) Concurrent Reset 0.341ms
+[52.718s][info][gc,cpu       ] GC(6) User=0.00s Sys=0.00s Real=0.00s
+[52.718s][info][gc,heap      ] GC(6) Old: 34168K->52730K(87424K)
+[54.718s][info][gc,start     ] GC(8) Pause Initial Mark
+[54.842s][info][gc           ] GC(8) Pause Initial Mark 74M->74M(114M) 124.344ms
+[54.843s][info][gc,cpu       ] GC(8) User=0.19s Sys=0.00s Real=0.12s
+[54.843s][info][gc           ] GC(8) Concurrent Mark
+[55.207s][info][gc           ] GC(8) Concurrent Mark 363.798ms
+[55.207s][info][gc,cpu       ] GC(8) User=0.63s Sys=0.00s Real=0.36s
+[55.207s][info][gc           ] GC(8) Concurrent Preclean
+[55.208s][info][gc           ] GC(8) Concurrent Preclean 0.921ms
+[55.208s][info][gc,cpu       ] GC(8) User=0.00s Sys=0.00s Real=0.00s
+[55.208s][info][gc           ] GC(8) Concurrent Abortable Preclean
+[60.232s][info][gc           ] GC(8) Concurrent Abortable Preclean 5023.434ms
+[60.232s][info][gc,cpu       ] GC(8) User=6.56s Sys=0.00s Real=5.02s
+[60.232s][info][gc,start     ] GC(8) Pause Remark
+[60.302s][info][gc           ] GC(8) Pause Remark 74M->74M(114M) 70.133ms
+[60.303s][info][gc,cpu       ] GC(8) User=0.20s Sys=0.00s Real=0.07s
+[60.303s][info][gc           ] GC(8) Concurrent Sweep
+[60.410s][info][gc           ] GC(8) Concurrent Sweep 107.042ms
+[60.410s][info][gc,cpu       ] GC(8) User=0.22s Sys=0.00s Real=0.11s
+[60.410s][info][gc           ] GC(8) Concurrent Reset
+[60.410s][info][gc           ] GC(8) Concurrent Reset 0.267ms
+[60.410s][info][gc,cpu       ] GC(8) User=0.00s Sys=0.00s Real=0.00s
+[60.410s][info][gc,heap      ] GC(8) Old: 52730K->43083K(87424K)
+[62.411s][info][gc,start     ] GC(9) Pause Initial Mark
+[62.518s][info][gc           ] GC(9) Pause Initial Mark 64M->64M(114M) 106.840ms
+[62.518s][info][gc,cpu       ] GC(9) User=0.16s Sys=0.00s Real=0.11s
+[62.518s][info][gc           ] GC(9) Concurrent Mark
+[62.818s][info][gc           ] GC(9) Concurrent Mark 299.688ms
+[62.818s][info][gc,cpu       ] GC(9) User=0.53s Sys=0.00s Real=0.30s
+[62.818s][info][gc           ] GC(9) Concurrent Preclean
+[62.819s][info][gc           ] GC(9) Concurrent Preclean 0.855ms
+[62.819s][info][gc,cpu       ] GC(9) User=0.00s Sys=0.00s Real=0.00s
+[62.819s][info][gc           ] GC(9) Concurrent Abortable Preclean
+[67.668s][info][gc,start     ] GC(10) Pause Young (Allocation Failure)
+[67.668s][info][gc,task      ] GC(10) Using 4 workers of 4 for evacuation
+[67.719s][info][gc           ] GC(9) Concurrent Abortable Preclean 4899.682ms
+[67.719s][info][gc,cpu       ] GC(9) User=6.17s Sys=0.03s Real=4.90s
+[67.792s][info][gc,heap      ] GC(10) ParNew: 29504K->3262K(29504K)
+[67.792s][info][gc,heap      ] GC(10) CMS: 43083K->64418K(87424K)
+[67.792s][info][gc,metaspace ] GC(10) Metaspace: 10907K->10907K(1058816K)
+[67.793s][info][gc           ] GC(10) Pause Young (Allocation Failure) 70M->66M(114M) 125.058ms
+[67.793s][info][gc,cpu       ] GC(10) User=0.44s Sys=0.02s Real=0.13s
+[67.796s][info][gc,start     ] GC(9) Pause Remark
+[67.853s][info][gc           ] GC(9) Pause Remark 66M->66M(114M) 56.812ms
+[67.853s][info][gc,cpu       ] GC(9) User=0.19s Sys=0.00s Real=0.06s
+[67.853s][info][gc           ] GC(9) Concurrent Sweep
+[67.968s][info][gc           ] GC(9) Concurrent Sweep 114.476ms
+[67.968s][info][gc,cpu       ] GC(9) User=0.20s Sys=0.00s Real=0.12s
+[67.968s][info][gc           ] GC(9) Concurrent Reset
+[67.969s][info][gc           ] GC(9) Concurrent Reset 0.385ms
+[67.969s][info][gc,cpu       ] GC(9) User=0.00s Sys=0.00s Real=0.00s
+[67.969s][info][gc,heap      ] GC(9) Old: 43083K->64231K(87424K)
+[69.968s][info][gc,start     ] GC(11) Pause Initial Mark
+[69.988s][info][gc           ] GC(11) Pause Initial Mark 72M->72M(114M) 19.250ms
+[69.988s][info][gc,cpu       ] GC(11) User=0.11s Sys=0.00s Real=0.02s
+[69.988s][info][gc           ] GC(11) Concurrent Mark
+[70.410s][info][gc           ] GC(11) Concurrent Mark 422.244ms
+[70.410s][info][gc,cpu       ] GC(11) User=0.73s Sys=0.02s Real=0.42s
+[70.411s][info][gc           ] GC(11) Concurrent Preclean
+[70.416s][info][gc           ] GC(11) Concurrent Preclean 5.876ms
+[70.417s][info][gc,cpu       ] GC(11) User=0.00s Sys=0.00s Real=0.01s
+[70.417s][info][gc           ] GC(11) Concurrent Abortable Preclean
+[75.425s][info][gc           ] GC(11) Concurrent Abortable Preclean 5008.257ms
+[75.425s][info][gc,cpu       ] GC(11) User=9.06s Sys=0.00s Real=5.01s
+[75.425s][info][gc,start     ] GC(11) Pause Remark
+[75.447s][info][gc           ] GC(11) Pause Remark 72M->72M(114M) 21.682ms
+[75.447s][info][gc,cpu       ] GC(11) User=0.03s Sys=0.02s Real=0.02s
+[75.447s][info][gc           ] GC(11) Concurrent Sweep
+[75.546s][info][gc           ] GC(11) Concurrent Sweep 98.669ms
+[75.546s][info][gc,cpu       ] GC(11) User=0.17s Sys=0.00s Real=0.10s
+[75.546s][info][gc           ] GC(11) Concurrent Reset
+[75.546s][info][gc           ] GC(11) Concurrent Reset 0.238ms
+[75.546s][info][gc,cpu       ] GC(11) User=0.00s Sys=0.00s Real=0.00s
+[75.546s][info][gc,heap      ] GC(11) Old: 64231K->64231K(87424K)
+[77.546s][info][gc,start     ] GC(12) Pause Initial Mark
+[77.565s][info][gc           ] GC(12) Pause Initial Mark 72M->72M(114M) 19.083ms
+[77.566s][info][gc,cpu       ] GC(12) User=0.08s Sys=0.00s Real=0.02s
+[77.566s][info][gc           ] GC(12) Concurrent Mark
+[77.992s][info][gc           ] GC(12) Concurrent Mark 426.349ms
+[77.992s][info][gc,cpu       ] GC(12) User=0.64s Sys=0.03s Real=0.43s
+[77.992s][info][gc           ] GC(12) Concurrent Preclean
+[77.995s][info][gc           ] GC(12) Concurrent Preclean 2.525ms
+[77.995s][info][gc,cpu       ] GC(12) User=0.00s Sys=0.00s Real=0.00s
+[77.995s][info][gc           ] GC(12) Concurrent Abortable Preclean
+[82.920s][info][gc,start     ] GC(13) Pause Young (Allocation Failure)
+[82.921s][info][gc,task      ] GC(13) Using 4 workers of 4 for evacuation
+[82.921s][info][gc,start     ] GC(14) Pause Full (Allocation Failure)
+[82.921s][info][gc           ] GC(12) Concurrent Abortable Preclean 4926.248ms
+[82.921s][info][gc,cpu       ] GC(12) User=8.88s Sys=0.02s Real=4.93s
+[82.921s][info][gc,phases,start] GC(14) Phase 1: Mark live objects
+[83.161s][info][gc,phases      ] GC(14) Phase 1: Mark live objects 239.070ms
+[83.161s][info][gc,phases,start] GC(14) Phase 2: Compute new object addresses
+[83.341s][info][gc,phases      ] GC(14) Phase 2: Compute new object addresses 180.701ms
+[83.342s][info][gc,phases,start] GC(14) Phase 3: Adjust pointers
+[83.487s][info][gc,phases      ] GC(14) Phase 3: Adjust pointers 145.128ms
+[83.487s][info][gc,phases,start] GC(14) Phase 4: Move objects
+[83.701s][info][gc,phases      ] GC(14) Phase 4: Move objects 214.103ms
+[83.702s][info][gc             ] GC(14) Pause Full (Allocation Failure) 86M->76M(114M) 781.059ms
+[83.702s][info][gc,heap        ] GC(13) ParNew: 23876K->0K(29504K)
+[83.702s][info][gc,heap        ] GC(13) CMS: 64231K->78542K(87424K)
+[83.702s][info][gc,metaspace   ] GC(13) Metaspace: 10776K->10776K(1058816K)
+[83.702s][info][gc             ] GC(13) Pause Young (Allocation Failure) 86M->76M(123M) 781.582ms
+[83.702s][info][gc,cpu         ] GC(13) User=0.73s Sys=0.02s Real=0.78s
+[85.702s][info][gc,start       ] GC(15) Pause Initial Mark
+[85.871s][info][gc             ] GC(15) Pause Initial Mark 93M->93M(123M) 169.691ms
+[85.871s][info][gc,cpu         ] GC(15) User=0.17s Sys=0.00s Real=0.17s
+[85.872s][info][gc             ] GC(15) Concurrent Mark
+[86.404s][info][gc             ] GC(15) Concurrent Mark 532.651ms
+[86.404s][info][gc,cpu         ] GC(15) User=1.00s Sys=0.02s Real=0.53s
+[86.404s][info][gc             ] GC(15) Concurrent Preclean
+[86.405s][info][gc             ] GC(15) Concurrent Preclean 0.560ms
+[86.405s][info][gc,cpu         ] GC(15) User=0.00s Sys=0.00s Real=0.00s
+[86.405s][info][gc             ] GC(15) Concurrent Abortable Preclean
+[86.405s][info][gc             ] GC(15) Concurrent Abortable Preclean 0.101ms
+[86.405s][info][gc,cpu         ] GC(15) User=0.00s Sys=0.00s Real=0.00s
+[86.406s][info][gc,start       ] GC(15) Pause Remark
+[86.496s][info][gc             ] GC(15) Pause Remark 93M->93M(123M) 90.601ms
+[86.496s][info][gc,cpu         ] GC(15) User=0.25s Sys=0.00s Real=0.09s
+[86.497s][info][gc             ] GC(15) Concurrent Sweep
+[86.661s][info][gc             ] GC(15) Concurrent Sweep 164.420ms
+[86.661s][info][gc,cpu         ] GC(15) User=0.30s Sys=0.00s Real=0.17s
+[86.661s][info][gc             ] GC(15) Concurrent Reset
+[86.662s][info][gc             ] GC(15) Concurrent Reset 0.273ms
+[86.662s][info][gc,cpu         ] GC(15) User=0.00s Sys=0.00s Real=0.00s
+[86.662s][info][gc,heap        ] GC(15) Old: 78542K->65698K(87424K)
+[88.662s][info][gc,start       ] GC(16) Pause Initial Mark
+[88.860s][info][gc             ] GC(16) Pause Initial Mark 80M->80M(123M) 198.400ms
+[88.860s][info][gc,cpu         ] GC(16) User=0.17s Sys=0.00s Real=0.20s
+[88.861s][info][gc             ] GC(16) Concurrent Mark
+[89.478s][info][gc             ] GC(16) Concurrent Mark 617.551ms
+[89.478s][info][gc,cpu         ] GC(16) User=0.83s Sys=0.02s Real=0.62s
+[89.478s][info][gc             ] GC(16) Concurrent Preclean
+[89.479s][info][gc             ] GC(16) Concurrent Preclean 0.920ms
+[89.479s][info][gc,cpu         ] GC(16) User=0.00s Sys=0.00s Real=0.00s
+[89.479s][info][gc             ] GC(16) Concurrent Abortable Preclean
+[94.484s][info][gc             ] GC(16) Concurrent Abortable Preclean 5004.321ms
+[94.484s][info][gc,cpu         ] GC(16) User=4.59s Sys=0.00s Real=5.01s
+[94.484s][info][gc,start       ] GC(16) Pause Remark
+[94.575s][info][gc             ] GC(16) Pause Remark 80M->80M(123M) 90.231ms
+[94.575s][info][gc,cpu         ] GC(16) User=0.27s Sys=0.00s Real=0.09s
+[94.575s][info][gc             ] GC(16) Concurrent Sweep
+[94.738s][info][gc             ] GC(16) Concurrent Sweep 163.459ms
+[94.739s][info][gc,cpu         ] GC(16) User=0.28s Sys=0.00s Real=0.16s
+[94.739s][info][gc             ] GC(16) Concurrent Reset
+[94.740s][info][gc             ] GC(16) Concurrent Reset 0.713ms
+[94.740s][info][gc,cpu         ] GC(16) User=0.00s Sys=0.00s Real=0.00s
+[94.740s][info][gc,heap        ] GC(16) Old: 65698K->65406K(87424K)
+[96.740s][info][gc,start       ] GC(17) Pause Initial Mark
+[96.882s][info][gc             ] GC(17) Pause Initial Mark 80M->80M(123M) 141.491ms
+[96.882s][info][gc,cpu         ] GC(17) User=0.14s Sys=0.00s Real=0.14s
+[96.882s][info][gc             ] GC(17) Concurrent Mark
+[97.354s][info][gc             ] GC(17) Concurrent Mark 472.552ms
+[97.355s][info][gc,cpu         ] GC(17) User=0.83s Sys=0.00s Real=0.47s
+[97.355s][info][gc             ] GC(17) Concurrent Preclean
+[97.355s][info][gc             ] GC(17) Concurrent Preclean 0.671ms
+[97.355s][info][gc,cpu         ] GC(17) User=0.00s Sys=0.00s Real=0.00s
+[97.355s][info][gc             ] GC(17) Concurrent Abortable Preclean
+[102.361s][info][gc             ] GC(17) Concurrent Abortable Preclean 5005.851ms
+[102.362s][info][gc,cpu         ] GC(17) User=4.50s Sys=0.02s Real=5.01s
+[102.362s][info][gc,start       ] GC(17) Pause Remark
+[102.489s][info][gc             ] GC(17) Pause Remark 93M->93M(123M) 126.471ms
+[102.489s][info][gc,cpu         ] GC(17) User=0.33s Sys=0.00s Real=0.13s
+[102.489s][info][gc             ] GC(17) Concurrent Sweep
+[102.680s][info][gc             ] GC(17) Concurrent Sweep 191.377ms
+[102.681s][info][gc,cpu         ] GC(17) User=0.30s Sys=0.00s Real=0.19s
+[102.681s][info][gc             ] GC(17) Concurrent Reset
+[102.681s][info][gc             ] GC(17) Concurrent Reset 0.399ms
+[102.681s][info][gc,cpu         ] GC(17) User=0.00s Sys=0.00s Real=0.00s
+[102.681s][info][gc,heap        ] GC(17) Old: 65406K->64203K(87424K)
+[104.682s][info][gc,start       ] GC(18) Pause Initial Mark
+[104.844s][info][gc             ] GC(18) Pause Initial Mark 92M->92M(123M) 161.940ms
+[104.844s][info][gc,cpu         ] GC(18) User=0.19s Sys=0.00s Real=0.16s
+[104.844s][info][gc             ] GC(18) Concurrent Mark
+[105.362s][info][gc             ] GC(18) Concurrent Mark 517.787ms
+[105.363s][info][gc,cpu         ] GC(18) User=0.94s Sys=0.02s Real=0.52s
+[105.363s][info][gc             ] GC(18) Concurrent Preclean
+[105.364s][info][gc             ] GC(18) Concurrent Preclean 0.863ms
+[105.364s][info][gc,cpu         ] GC(18) User=0.00s Sys=0.00s Real=0.00s
+[105.364s][info][gc             ] GC(18) Concurrent Abortable Preclean
+[110.370s][info][gc             ] GC(18) Concurrent Abortable Preclean 5005.828ms
+[110.370s][info][gc,cpu         ] GC(18) User=4.39s Sys=0.02s Real=5.01s
+[110.370s][info][gc,start       ] GC(18) Pause Remark
+[110.495s][info][gc             ] GC(18) Pause Remark 92M->92M(123M) 124.902ms
+[110.495s][info][gc,cpu         ] GC(18) User=0.36s Sys=0.00s Real=0.13s
+[110.495s][info][gc             ] GC(18) Concurrent Sweep
+[110.701s][info][gc             ] GC(18) Concurrent Sweep 205.201ms
+[110.701s][info][gc,cpu         ] GC(18) User=0.38s Sys=0.00s Real=0.20s
+[110.701s][info][gc             ] GC(18) Concurrent Reset
+[110.701s][info][gc             ] GC(18) Concurrent Reset 0.413ms
+[110.702s][info][gc,cpu         ] GC(18) User=0.00s Sys=0.00s Real=0.00s
+[110.702s][info][gc,heap        ] GC(18) Old: 64203K->63153K(87424K)
+[112.702s][info][gc,start       ] GC(19) Pause Initial Mark
+[112.858s][info][gc             ] GC(19) Pause Initial Mark 91M->91M(123M) 155.955ms
+[112.858s][info][gc,cpu         ] GC(19) User=0.23s Sys=0.00s Real=0.16s
+[112.858s][info][gc             ] GC(19) Concurrent Mark
+[113.381s][info][gc             ] GC(19) Concurrent Mark 523.499ms
+[113.382s][info][gc,cpu         ] GC(19) User=0.78s Sys=0.00s Real=0.52s
+[113.382s][info][gc             ] GC(19) Concurrent Preclean
+[113.383s][info][gc             ] GC(19) Concurrent Preclean 0.891ms
+[113.383s][info][gc,cpu         ] GC(19) User=0.00s Sys=0.00s Real=0.00s
+[113.383s][info][gc             ] GC(19) Concurrent Abortable Preclean
+[116.097s][info][gc,start       ] GC(20) Pause Young (Allocation Failure)
+[116.097s][info][gc,task        ] GC(20) Using 4 workers of 4 for evacuation
+[116.202s][info][gc             ] GC(19) Concurrent Abortable Preclean 2818.866ms
+[116.202s][info][gc,cpu         ] GC(19) User=2.78s Sys=0.00s Real=2.82s
+[116.297s][info][gc,promotion   ] Promotion failed
+[116.298s][info][gc,start       ] GC(21) Pause Full (Allocation Failure)
+[116.298s][info][gc,phases,start] GC(21) Phase 1: Mark live objects
+[116.649s][info][gc,phases      ] GC(21) Phase 1: Mark live objects 350.984ms
+[116.649s][info][gc,phases,start] GC(21) Phase 2: Compute new object addresses
+[116.913s][info][gc,phases      ] GC(21) Phase 2: Compute new object addresses 264.410ms
+[116.914s][info][gc,phases,start] GC(21) Phase 3: Adjust pointers
+[117.107s][info][gc,phases      ] GC(21) Phase 3: Adjust pointers 193.689ms
+[117.107s][info][gc,phases,start] GC(21) Phase 4: Move objects
+[117.246s][info][gc,phases      ] GC(21) Phase 4: Move objects 138.708ms
+[117.248s][info][gc             ] GC(21) Pause Full (Allocation Failure) 100M->90M(123M) 949.961ms
+[117.248s][info][gc,heap        ] GC(20) ParNew: 34944K->5585K(39296K)
+[117.248s][info][gc,heap        ] GC(20) CMS: 63153K->87423K(87424K)
+[117.248s][info][gc,metaspace   ] GC(20) Metaspace: 10776K->10776K(1058816K)
+[117.248s][info][gc             ] GC(20) Pause Young (Allocation Failure) 95M->90M(123M) 1151.185ms
+[117.248s][info][gc,cpu         ] GC(20) User=1.58s Sys=0.00s Real=1.15s
+[119.249s][info][gc,start       ] GC(22) Pause Initial Mark
+[119.271s][info][gc             ] GC(22) Pause Initial Mark 99M->99M(123M) 22.188ms
+[119.271s][info][gc,cpu         ] GC(22) User=0.08s Sys=0.00s Real=0.02s
+[119.272s][info][gc             ] GC(22) Concurrent Mark
+[119.733s][info][gc             ] GC(22) Concurrent Mark 461.310ms
+[119.733s][info][gc,cpu         ] GC(22) User=0.83s Sys=0.00s Real=0.46s
+[119.733s][info][gc             ] GC(22) Concurrent Preclean
+[120.240s][info][gc             ] GC(22) Concurrent Preclean 507.191ms
+[120.241s][info][gc,cpu         ] GC(22) User=0.97s Sys=0.00s Real=0.51s
+[120.241s][info][gc             ] GC(22) Concurrent Abortable Preclean
+[120.241s][info][gc             ] GC(22) Concurrent Abortable Preclean 0.084ms
+[120.241s][info][gc,cpu         ] GC(22) User=0.00s Sys=0.00s Real=0.00s
+[120.241s][info][gc,start       ] GC(22) Pause Remark
+[120.270s][info][gc             ] GC(22) Pause Remark 99M->99M(123M) 28.515ms
+[120.270s][info][gc,cpu         ] GC(22) User=0.08s Sys=0.00s Real=0.03s
+[120.270s][info][gc             ] GC(22) Concurrent Sweep
+[120.445s][info][gc             ] GC(22) Concurrent Sweep 175.501ms
+[120.445s][info][gc,cpu         ] GC(22) User=0.31s Sys=0.00s Real=0.17s
+[120.446s][info][gc             ] GC(22) Concurrent Reset
+[120.446s][info][gc             ] GC(22) Concurrent Reset 0.387ms
+[120.446s][info][gc,cpu         ] GC(22) User=0.00s Sys=0.00s Real=0.00s
+[120.446s][info][gc,heap        ] GC(22) Old: 87423K->87423K(87424K)
+[122.448s][info][gc,start       ] GC(23) Pause Initial Mark
+[122.475s][info][gc             ] GC(23) Pause Initial Mark 99M->99M(123M) 27.688ms
+[122.475s][info][gc,cpu         ] GC(23) User=0.05s Sys=0.00s Real=0.03s
+[122.476s][info][gc             ] GC(23) Concurrent Mark
+[123.045s][info][gc             ] GC(23) Concurrent Mark 569.199ms
+[123.045s][info][gc,cpu         ] GC(23) User=0.97s Sys=0.02s Real=0.57s
+[123.045s][info][gc             ] GC(23) Concurrent Preclean
+[123.049s][info][gc             ] GC(23) Concurrent Preclean 4.016ms
+[123.049s][info][gc,cpu         ] GC(23) User=0.00s Sys=0.03s Real=0.01s
+[123.049s][info][gc             ] GC(23) Concurrent Abortable Preclean
+[123.050s][info][gc             ] GC(23) Concurrent Abortable Preclean 0.100ms
+[123.050s][info][gc,cpu         ] GC(23) User=0.00s Sys=0.00s Real=0.00s
+[123.050s][info][gc,start       ] GC(23) Pause Remark
+[123.088s][info][gc             ] GC(23) Pause Remark 99M->99M(123M) 37.571ms
+[123.088s][info][gc,cpu         ] GC(23) User=0.06s Sys=0.00s Real=0.04s
+[123.088s][info][gc             ] GC(23) Concurrent Sweep
+[123.301s][info][gc             ] GC(23) Concurrent Sweep 212.786ms
+[123.301s][info][gc,cpu         ] GC(23) User=0.39s Sys=0.00s Real=0.21s
+[123.301s][info][gc             ] GC(23) Concurrent Reset
+[123.301s][info][gc             ] GC(23) Concurrent Reset 0.331ms
+[123.301s][info][gc,cpu         ] GC(23) User=0.00s Sys=0.00s Real=0.00s
+[123.301s][info][gc,heap        ] GC(23) Old: 87423K->87423K(87424K)
+[125.301s][info][gc,start       ] GC(24) Pause Initial Mark
+[125.321s][info][gc             ] GC(24) Pause Initial Mark 99M->99M(123M) 19.745ms
+[125.321s][info][gc,cpu         ] GC(24) User=0.05s Sys=0.00s Real=0.02s
+[125.321s][info][gc             ] GC(24) Concurrent Mark
+[125.741s][info][gc             ] GC(24) Concurrent Mark 419.715ms
+[125.741s][info][gc,cpu         ] GC(24) User=0.80s Sys=0.00s Real=0.42s
+[125.741s][info][gc             ] GC(24) Concurrent Preclean
+[125.744s][info][gc             ] GC(24) Concurrent Preclean 2.896ms
+[125.744s][info][gc,cpu         ] GC(24) User=0.00s Sys=0.00s Real=0.00s
+[125.744s][info][gc             ] GC(24) Concurrent Abortable Preclean
+[125.744s][info][gc             ] GC(24) Concurrent Abortable Preclean 0.071ms
+[125.744s][info][gc,cpu         ] GC(24) User=0.00s Sys=0.00s Real=0.00s
+[125.745s][info][gc,start       ] GC(24) Pause Remark
+[125.771s][info][gc             ] GC(24) Pause Remark 99M->99M(123M) 26.736ms
+[125.772s][info][gc,cpu         ] GC(24) User=0.08s Sys=0.00s Real=0.03s
+[125.772s][info][gc             ] GC(24) Concurrent Sweep
+[125.931s][info][gc             ] GC(24) Concurrent Sweep 159.257ms
+[125.931s][info][gc,cpu         ] GC(24) User=0.31s Sys=0.00s Real=0.16s
+[125.931s][info][gc             ] GC(24) Concurrent Reset
+[125.932s][info][gc             ] GC(24) Concurrent Reset 0.386ms
+[125.932s][info][gc,cpu         ] GC(24) User=0.00s Sys=0.00s Real=0.00s
+[125.932s][info][gc,heap        ] GC(24) Old: 87423K->87423K(87424K)
+[127.932s][info][gc,start       ] GC(25) Pause Initial Mark
+[127.967s][info][gc             ] GC(25) Pause Initial Mark 99M->99M(123M) 34.967ms
+[127.967s][info][gc,cpu         ] GC(25) User=0.06s Sys=0.00s Real=0.04s
+[127.967s][info][gc             ] GC(25) Concurrent Mark
+[128.531s][info][gc             ] GC(25) Concurrent Mark 563.874ms
+[128.531s][info][gc,cpu         ] GC(25) User=0.95s Sys=0.00s Real=0.56s
+[128.531s][info][gc             ] GC(25) Concurrent Preclean
+[128.534s][info][gc             ] GC(25) Concurrent Preclean 3.136ms
+[128.535s][info][gc,cpu         ] GC(25) User=0.02s Sys=0.00s Real=0.00s
+[128.535s][info][gc             ] GC(25) Concurrent Abortable Preclean
+[128.535s][info][gc             ] GC(25) Concurrent Abortable Preclean 0.098ms
+[128.535s][info][gc,cpu         ] GC(25) User=0.00s Sys=0.00s Real=0.00s
+[128.536s][info][gc,start       ] GC(25) Pause Remark
+[128.571s][info][gc             ] GC(25) Pause Remark 99M->99M(123M) 35.005ms
+[128.571s][info][gc,cpu         ] GC(25) User=0.06s Sys=0.00s Real=0.04s
+[128.571s][info][gc             ] GC(25) Concurrent Sweep
+[128.784s][info][gc             ] GC(25) Concurrent Sweep 213.282ms
+[128.784s][info][gc,cpu         ] GC(25) User=0.39s Sys=0.00s Real=0.21s
+[128.785s][info][gc             ] GC(25) Concurrent Reset
+[128.785s][info][gc             ] GC(25) Concurrent Reset 0.387ms
+[128.785s][info][gc,cpu         ] GC(25) User=0.00s Sys=0.00s Real=0.00s
+[128.785s][info][gc,heap        ] GC(25) Old: 87423K->87423K(87424K)
+[130.788s][info][gc,start       ] GC(26) Pause Initial Mark
+[130.812s][info][gc             ] GC(26) Pause Initial Mark 99M->99M(123M) 24.022ms
+[130.813s][info][gc,cpu         ] GC(26) User=0.05s Sys=0.00s Real=0.03s
+[130.813s][info][gc             ] GC(26) Concurrent Mark
+[131.324s][info][gc             ] GC(26) Concurrent Mark 510.840ms
+[131.324s][info][gc,cpu         ] GC(26) User=0.80s Sys=0.00s Real=0.51s
+[131.324s][info][gc             ] GC(26) Concurrent Preclean
+[131.326s][info][gc             ] GC(26) Concurrent Preclean 2.180ms
+[131.326s][info][gc,cpu         ] GC(26) User=0.00s Sys=0.00s Real=0.00s
+[131.326s][info][gc             ] GC(26) Concurrent Abortable Preclean
+[131.326s][info][gc             ] GC(26) Concurrent Abortable Preclean 0.091ms
+[131.326s][info][gc,cpu         ] GC(26) User=0.00s Sys=0.00s Real=0.00s
+[131.327s][info][gc,start       ] GC(26) Pause Remark
+[131.367s][info][gc             ] GC(26) Pause Remark 99M->99M(123M) 40.405ms
+[131.367s][info][gc,cpu         ] GC(26) User=0.08s Sys=0.00s Real=0.04s
+[131.367s][info][gc             ] GC(26) Concurrent Sweep
+[131.562s][info][gc             ] GC(26) Concurrent Sweep 194.515ms
+[131.562s][info][gc,cpu         ] GC(26) User=0.33s Sys=0.00s Real=0.19s
+[131.562s][info][gc             ] GC(26) Concurrent Reset
+[131.563s][info][gc             ] GC(26) Concurrent Reset 0.510ms
+[131.563s][info][gc,cpu         ] GC(26) User=0.00s Sys=0.00s Real=0.00s
+[131.564s][info][gc,heap        ] GC(26) Old: 87423K->87423K(87424K)
+[133.564s][info][gc,start       ] GC(27) Pause Initial Mark
+[133.600s][info][gc             ] GC(27) Pause Initial Mark 113M->113M(123M) 36.306ms
+[133.600s][info][gc,cpu         ] GC(27) User=0.16s Sys=0.00s Real=0.04s
+[133.600s][info][gc             ] GC(27) Concurrent Mark
+[134.056s][info][gc             ] GC(27) Concurrent Mark 456.088ms
+[134.056s][info][gc,cpu         ] GC(27) User=0.80s Sys=0.00s Real=0.46s
+[134.056s][info][gc             ] GC(27) Concurrent Preclean
+[134.064s][info][gc             ] GC(27) Concurrent Preclean 7.656ms
+[134.064s][info][gc,cpu         ] GC(27) User=0.00s Sys=0.00s Real=0.01s
+[134.064s][info][gc             ] GC(27) Concurrent Abortable Preclean
+[134.065s][info][gc             ] GC(27) Concurrent Abortable Preclean 0.090ms
+[134.065s][info][gc,cpu         ] GC(27) User=0.02s Sys=0.02s Real=0.00s
+[134.066s][info][gc,start       ] GC(27) Pause Remark
+[134.110s][info][gc             ] GC(27) Pause Remark 113M->113M(123M) 43.825ms
+[134.110s][info][gc,cpu         ] GC(27) User=0.11s Sys=0.00s Real=0.04s
+[134.111s][info][gc             ] GC(27) Concurrent Sweep
+[134.289s][info][gc             ] GC(27) Concurrent Sweep 178.484ms
+[134.289s][info][gc,cpu         ] GC(27) User=0.34s Sys=0.00s Real=0.18s
+[134.289s][info][gc             ] GC(27) Concurrent Reset
+[134.290s][info][gc             ] GC(27) Concurrent Reset 0.275ms
+[134.290s][info][gc,cpu         ] GC(27) User=0.00s Sys=0.00s Real=0.00s
+[134.290s][info][gc,heap        ] GC(27) Old: 87423K->87423K(87424K)
+[136.289s][info][gc,start       ] GC(28) Pause Initial Mark
+[136.330s][info][gc             ] GC(28) Pause Initial Mark 113M->113M(123M) 40.866ms
+[136.331s][info][gc,cpu         ] GC(28) User=0.11s Sys=0.00s Real=0.04s
+[136.331s][info][gc             ] GC(28) Concurrent Mark
+[136.804s][info][gc             ] GC(28) Concurrent Mark 473.151ms
+[136.804s][info][gc,cpu         ] GC(28) User=0.83s Sys=0.00s Real=0.47s
+[136.804s][info][gc             ] GC(28) Concurrent Preclean
+[136.808s][info][gc             ] GC(28) Concurrent Preclean 3.931ms
+[136.808s][info][gc,cpu         ] GC(28) User=0.00s Sys=0.00s Real=0.00s
+[136.808s][info][gc             ] GC(28) Concurrent Abortable Preclean
+[136.808s][info][gc             ] GC(28) Concurrent Abortable Preclean 0.083ms
+[136.808s][info][gc,cpu         ] GC(28) User=0.00s Sys=0.00s Real=0.00s
+[136.809s][info][gc,start       ] GC(28) Pause Remark
+[136.852s][info][gc             ] GC(28) Pause Remark 113M->113M(123M) 43.199ms
+[136.852s][info][gc,cpu         ] GC(28) User=0.13s Sys=0.00s Real=0.04s
+[136.852s][info][gc             ] GC(28) Concurrent Sweep
+[137.026s][info][gc             ] GC(28) Concurrent Sweep 173.296ms
+[137.026s][info][gc,cpu         ] GC(28) User=0.31s Sys=0.00s Real=0.17s
+[137.026s][info][gc             ] GC(28) Concurrent Reset
+[137.026s][info][gc             ] GC(28) Concurrent Reset 0.301ms
+[137.026s][info][gc,cpu         ] GC(28) User=0.00s Sys=0.00s Real=0.00s
+[137.027s][info][gc,heap        ] GC(28) Old: 87423K->87423K(87424K)
+[139.028s][info][gc,start       ] GC(29) Pause Initial Mark
+[139.069s][info][gc             ] GC(29) Pause Initial Mark 113M->113M(123M) 41.177ms
+[139.069s][info][gc,cpu         ] GC(29) User=0.16s Sys=0.00s Real=0.04s
+[139.069s][info][gc             ] GC(29) Concurrent Mark
+[139.617s][info][gc             ] GC(29) Concurrent Mark 548.108ms
+[139.617s][info][gc,cpu         ] GC(29) User=0.72s Sys=0.00s Real=0.55s
+[139.617s][info][gc             ] GC(29) Concurrent Preclean
+[139.621s][info][gc             ] GC(29) Concurrent Preclean 3.525ms
+[139.621s][info][gc,cpu         ] GC(29) User=0.00s Sys=0.00s Real=0.00s
+[139.621s][info][gc             ] GC(29) Concurrent Abortable Preclean
+[139.621s][info][gc             ] GC(29) Concurrent Abortable Preclean 0.087ms
+[139.622s][info][gc,cpu         ] GC(29) User=0.00s Sys=0.00s Real=0.00s
+[139.627s][info][gc,start       ] GC(29) Pause Remark
+[139.681s][info][gc             ] GC(29) Pause Remark 113M->113M(123M) 54.184ms
+[139.681s][info][gc,cpu         ] GC(29) User=0.16s Sys=0.00s Real=0.05s
+[139.681s][info][gc             ] GC(29) Concurrent Sweep
+[139.885s][info][gc             ] GC(29) Concurrent Sweep 203.321ms
+[139.885s][info][gc,cpu         ] GC(29) User=0.33s Sys=0.00s Real=0.20s
+[139.885s][info][gc             ] GC(29) Concurrent Reset
+[139.885s][info][gc             ] GC(29) Concurrent Reset 0.436ms
+[139.885s][info][gc,cpu         ] GC(29) User=0.00s Sys=0.00s Real=0.00s
+[139.886s][info][gc,heap        ] GC(29) Old: 87423K->87423K(87424K)
+[141.885s][info][gc,start       ] GC(30) Pause Initial Mark
+[141.925s][info][gc             ] GC(30) Pause Initial Mark 113M->113M(123M) 39.938ms
+[141.925s][info][gc,cpu         ] GC(30) User=0.16s Sys=0.00s Real=0.04s
+[141.925s][info][gc             ] GC(30) Concurrent Mark
+[142.387s][info][gc             ] GC(30) Concurrent Mark 461.377ms
+[142.387s][info][gc,cpu         ] GC(30) User=0.81s Sys=0.00s Real=0.46s
+[142.387s][info][gc             ] GC(30) Concurrent Preclean
+[142.390s][info][gc             ] GC(30) Concurrent Preclean 2.962ms
+[142.390s][info][gc,cpu         ] GC(30) User=0.00s Sys=0.00s Real=0.00s
+[142.390s][info][gc             ] GC(30) Concurrent Abortable Preclean
+[142.390s][info][gc             ] GC(30) Concurrent Abortable Preclean 0.089ms
+[142.391s][info][gc,cpu         ] GC(30) User=0.00s Sys=0.00s Real=0.00s
+[142.391s][info][gc,start       ] GC(30) Pause Remark
+[142.433s][info][gc             ] GC(30) Pause Remark 113M->113M(123M) 42.469ms
+[142.433s][info][gc,cpu         ] GC(30) User=0.14s Sys=0.00s Real=0.04s
+[142.434s][info][gc             ] GC(30) Concurrent Sweep
+[142.634s][info][gc             ] GC(30) Concurrent Sweep 200.937ms
+[142.635s][info][gc,cpu         ] GC(30) User=0.28s Sys=0.00s Real=0.20s
+[142.635s][info][gc             ] GC(30) Concurrent Reset
+[142.636s][info][gc             ] GC(30) Concurrent Reset 0.781ms
+[142.636s][info][gc,cpu         ] GC(30) User=0.00s Sys=0.00s Real=0.00s
+[142.636s][info][gc,heap        ] GC(30) Old: 87423K->87423K(87424K)
+[144.637s][info][gc,start       ] GC(31) Pause Initial Mark
+[144.683s][info][gc             ] GC(31) Pause Initial Mark 113M->113M(123M) 45.466ms
+[144.683s][info][gc,cpu         ] GC(31) User=0.16s Sys=0.00s Real=0.05s
+[144.683s][info][gc             ] GC(31) Concurrent Mark
+[145.208s][info][gc             ] GC(31) Concurrent Mark 525.068ms
+[145.208s][info][gc,cpu         ] GC(31) User=0.97s Sys=0.00s Real=0.53s
+[145.208s][info][gc             ] GC(31) Concurrent Preclean
+[145.211s][info][gc             ] GC(31) Concurrent Preclean 2.696ms
+[145.211s][info][gc,cpu         ] GC(31) User=0.00s Sys=0.00s Real=0.00s
+[145.211s][info][gc             ] GC(31) Concurrent Abortable Preclean
+[145.212s][info][gc             ] GC(31) Concurrent Abortable Preclean 0.109ms
+[145.212s][info][gc,cpu         ] GC(31) User=0.00s Sys=0.00s Real=0.00s
+[145.212s][info][gc,start       ] GC(31) Pause Remark
+[145.261s][info][gc             ] GC(31) Pause Remark 113M->113M(123M) 48.849ms
+[145.261s][info][gc,cpu         ] GC(31) User=0.17s Sys=0.00s Real=0.05s
+[145.261s][info][gc             ] GC(31) Concurrent Sweep
+[145.483s][info][gc             ] GC(31) Concurrent Sweep 222.117ms
+[145.483s][info][gc,cpu         ] GC(31) User=0.38s Sys=0.00s Real=0.22s
+[145.484s][info][gc             ] GC(31) Concurrent Reset
+[145.484s][info][gc             ] GC(31) Concurrent Reset 0.413ms
+[145.484s][info][gc,cpu         ] GC(31) User=0.00s Sys=0.00s Real=0.00s
+[145.484s][info][gc,heap        ] GC(31) Old: 87423K->87423K(87424K)
+[147.484s][info][gc,start       ] GC(32) Pause Initial Mark
+[147.519s][info][gc             ] GC(32) Pause Initial Mark 113M->113M(123M) 35.648ms
+[147.520s][info][gc,cpu         ] GC(32) User=0.16s Sys=0.00s Real=0.04s
+[147.520s][info][gc             ] GC(32) Concurrent Mark
+[147.955s][info][gc             ] GC(32) Concurrent Mark 435.514ms
+[147.955s][info][gc,cpu         ] GC(32) User=0.80s Sys=0.00s Real=0.43s
+[147.956s][info][gc             ] GC(32) Concurrent Preclean
+[147.960s][info][gc             ] GC(32) Concurrent Preclean 4.654ms
+[147.960s][info][gc,cpu         ] GC(32) User=0.00s Sys=0.00s Real=0.00s
+[147.960s][info][gc             ] GC(32) Concurrent Abortable Preclean
+[147.961s][info][gc             ] GC(32) Concurrent Abortable Preclean 0.074ms
+[147.961s][info][gc,cpu         ] GC(32) User=0.00s Sys=0.00s Real=0.00s
+[147.961s][info][gc,start       ] GC(32) Pause Remark
+[148.013s][info][gc             ] GC(32) Pause Remark 120M->120M(123M) 52.229ms
+[148.013s][info][gc,cpu         ] GC(32) User=0.17s Sys=0.00s Real=0.05s
+[148.014s][info][gc             ] GC(32) Concurrent Sweep
+[148.191s][info][gc,start       ] GC(33) Pause Young (Allocation Failure)
+[148.192s][info][gc,task        ] GC(33) Using 4 workers of 4 for evacuation
+[148.192s][info][gc,start       ] GC(34) Pause Full (Allocation Failure)
+[148.194s][info][gc             ] GC(32) Concurrent Sweep 180.630ms
+[148.194s][info][gc,cpu         ] GC(32) User=0.34s Sys=0.00s Real=0.18s
+[148.194s][info][gc,phases,start] GC(34) Phase 1: Mark live objects
+[148.588s][info][gc,phases      ] GC(34) Phase 1: Mark live objects 393.677ms
+[148.588s][info][gc,phases,start] GC(34) Phase 2: Compute new object addresses
+[148.926s][info][gc,phases      ] GC(34) Phase 2: Compute new object addresses 337.867ms
+[148.926s][info][gc,phases,start] GC(34) Phase 3: Adjust pointers
+[149.215s][info][gc,phases      ] GC(34) Phase 3: Adjust pointers 288.900ms
+[149.215s][info][gc,phases,start] GC(34) Phase 4: Move objects
+[149.319s][info][gc,phases      ] GC(34) Phase 4: Move objects 103.261ms
+[149.320s][info][gc             ] GC(34) Pause Full (Allocation Failure) 123M->113M(123M) 1128.702ms
+[149.320s][info][gc,heap        ] GC(33) ParNew: 38660K->28508K(39296K)
+[149.321s][info][gc,heap        ] GC(33) CMS: 87423K->87423K(87424K)
+[149.321s][info][gc,metaspace   ] GC(33) Metaspace: 10776K->10776K(1058816K)
+[149.321s][info][gc             ] GC(33) Pause Young (Allocation Failure) 123M->113M(123M) 1129.455ms
+[149.321s][info][gc,cpu         ] GC(33) User=1.13s Sys=0.00s Real=1.13s
+[149.321s][info][gc,start       ] GC(35) Pause Full (Allocation Failure)
+[149.322s][info][gc,phases,start] GC(35) Phase 1: Mark live objects
+[149.829s][info][gc,phases      ] GC(35) Phase 1: Mark live objects 506.971ms
+[149.829s][info][gc,phases,start] GC(35) Phase 2: Compute new object addresses
+[150.180s][info][gc,phases      ] GC(35) Phase 2: Compute new object addresses 351.482ms
+[150.181s][info][gc,phases,start] GC(35) Phase 3: Adjust pointers
+[150.491s][info][gc,phases      ] GC(35) Phase 3: Adjust pointers 310.803ms
+[150.492s][info][gc,phases,start] GC(35) Phase 4: Move objects
+[150.848s][info][gc,phases      ] GC(35) Phase 4: Move objects 355.986ms
+[150.849s][info][gc,heap        ] GC(35) ParNew: 28508K->28508K(39296K)
+[150.850s][info][gc,heap        ] GC(35) CMS: 87423K->87423K(87424K)
+[150.850s][info][gc,metaspace   ] GC(35) Metaspace: 10776K->10776K(1058816K)
+[150.850s][info][gc             ] GC(35) Pause Full (Allocation Failure) 113M->113M(123M) 1528.452ms
+[150.850s][info][gc,cpu         ] GC(35) User=1.53s Sys=0.00s Real=1.53s
+[150.850s][info][gc,heap        ] GC(32) Old: 87423K->87423K(87424K)
+[150.859s][info][gc,heap,exit   ] Heap
+[150.860s][info][gc,heap,exit   ]  par new generation   total 39296K, used 30584K [0x00000000f8000000, 0x00000000faaa0000, 0x00000000faaa0000)
+[150.860s][info][gc,heap,exit   ]   eden space 34944K,  87% used [0x00000000f8000000, 0x00000000f9dde3a0, 0x00000000fa220000)
+[150.860s][info][gc,heap,exit   ]   from space 4352K,   0% used [0x00000000fa660000, 0x00000000fa660000, 0x00000000faaa0000)
+[150.860s][info][gc,heap,exit   ]   to   space 4352K,   0% used [0x00000000fa220000, 0x00000000fa220000, 0x00000000fa660000)
+[150.860s][info][gc,heap,exit   ]  concurrent mark-sweep generation total 87424K, used 87423K [0x00000000faaa0000, 0x0000000100000000, 0x0000000100000000)
+[150.860s][info][gc,heap,exit   ]  Metaspace       used 10786K, capacity 11030K, committed 11392K, reserved 1058816K
+[150.860s][info][gc,heap,exit   ]   class space    used 1000K, capacity 1063K, committed 1152K, reserved 1048576K

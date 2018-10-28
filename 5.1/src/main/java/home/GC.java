@@ -60,7 +60,7 @@ public class GC {
 
         if (unknownCount > 0) {
             sb.append(", UnknownGC -> Count: ").append(unknownCount)
-                    .append(", Time (ms): ").append(unknownTime);
+                    .append(", Time (ms): ").append(new DecimalFormat("#0.000").format(majorTime));
         }
 
         System.out.println(sb);
