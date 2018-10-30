@@ -52,11 +52,13 @@ public class CacheEngineImpl<K, V> implements CacheEngine<K, V> {
 
     public MyElement<K, SoftReference<V>> get(K key) {
         MyElement<K, SoftReference<V>> element = elements.get(key);
-        if (element != null) {
-            hit++;
-            element.setAccessed();
-        } else {
-            miss++;
+        if (element.getValue() != null) {
+            if (element != null) {
+                hit++;
+                element.setAccessed();
+            } else {
+                miss++;
+            }
         }
         return element;
     }
