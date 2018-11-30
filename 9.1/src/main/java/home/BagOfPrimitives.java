@@ -8,12 +8,16 @@ class BagOfPrimitives {
     private final int value1;
     private final String value2;
     List <Integer> value3=new ArrayList<>();
-    //private final int value3;
+    Object value4;
+    String value5;
 
-    public BagOfPrimitives(int value1, String value2, List value3) {
+
+    public BagOfPrimitives(int value1, String value2, List value3, Object value4, String value5) {
         this.value1 = value1;
         this.value2 = value2;
         this.value3 = value3;
+        this.value4=value4;
+        this.value5=value5;
     }
 
     public BagOfPrimitives() {
@@ -21,6 +25,8 @@ class BagOfPrimitives {
         value2 = "abc";
         value3.add(10);
         value3.add(15);
+        value4 = new int[] {1, 2, 3};
+        String value5=null;
 
     }
 
@@ -33,12 +39,16 @@ class BagOfPrimitives {
 
         if (value1 != that.value1) return false;
         if (value3 != that.value3) return false;
-        return value2 != null ? value2.equals(that.value2) : that.value2 == null;
+        if (value4 != that.value4) return false;
+        if (value5 != that.value5) return false;
+        if (value2 != null) return value2.equals(that.value2);
+        else return that.value2 == null;
     }
 
     @Override
     public String toString() {
-        return "BagOfPrimitives{" + "value1=" + value1 + ", value2='" + value2 + '\'' + ", value3=" + value3 + '}';
+        return "BagOfPrimitives{" + "value1=" + value1 + ", value2='" + value2 + '\'' + ", value3=" + value3 +", value4="
+                + value4.toString() + ", value5=" + value5 + '}';
     }
 
 
