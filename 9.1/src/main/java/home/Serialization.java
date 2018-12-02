@@ -14,31 +14,39 @@ public class Serialization {
         JsonObjectBuilder builder;
 
         if (obj == null) {
-            builder = Json.createObjectBuilder().addNull("Null Object");
+
+            JsonValue jv= JsonValue.NULL;
+
+            builder =  Json.createObjectBuilder().add(jv.getClass().getTypeName(), jv);
             jsonst = builder.build();
         }
         else
-        if (obj.getClass().isArray()|| obj instanceof Collection){
-                builder = Json.createObjectBuilder().add(obj.getClass().getName(),
-                        arrayBuilder(obj));
-                jsonst = builder.build();}
+        if (obj.getClass().isArray()|| obj instanceof Collection) {
+
+            builder = Json.createObjectBuilder().add(obj.getClass().getSimpleName(),arrayBuilder(obj));
+
+            jsonst = builder.build();
+
+        }
+
 
             else {
-                Field[] fields = obj.getClass().getDeclaredFields();
 
-                try {
-                    builder = Json.createObjectBuilder();
-                    for (Field field : fields) {
-                        boolean isTransient = Modifier.isTransient(field.getModifiers());
-                        if (isTransient != true) {
-                            field.setAccessible(true);
+            Field[] fields = obj.getClass().getDeclaredFields();
 
-                            if (field.get(obj) == null) {
-                                builder.addNull(field.getName());
-                            }
-                            else {
+            try {
+                builder = Json.createObjectBuilder();
+                for (Field field : fields) {
+
+                    boolean isTransient = Modifier.isTransient(field.getModifiers());
+                    if (isTransient != true) {
+                        field.setAccessible(true);
+
+                        if (field.get(obj) == null) {
+                            builder.addNull(field.getName());
+                        } else {
                             if (field.get(obj).getClass().isArray()) {
-                                builder.add(field.getName(), arrayBuilder( field.get(obj)));
+                                builder.add(field.getName(), arrayBuilder(field.get(obj)));
                             }
 
                             if (field.get(obj) instanceof Collection) {
@@ -51,13 +59,14 @@ public class Serialization {
                             if (field.get(obj) instanceof String)
                                 builder.add(field.getName(), (String) field.get(obj));
                         }
-                        }
                     }
-                    jsonst = builder.build();
-                } catch (IllegalAccessException nsfe) {
-                    throw new RuntimeException(nsfe);
                 }
+                jsonst = builder.build();
+            } catch (IllegalAccessException nsfe) {
+                throw new RuntimeException(nsfe);
             }
+        }
+
 
             String jsonData = writeToString((JsonObject) jsonst);
             System.out.println();

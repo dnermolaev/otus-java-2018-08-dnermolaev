@@ -3,16 +3,17 @@ package home;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 class BagOfPrimitives {
-    private final int value1;
-    private final String value2;
+    int value1;
+    String value2;
     List <Integer> value3=new ArrayList<>();
-    Object value4;
+    int [] value4;
     String value5;
 
 
-    public BagOfPrimitives(int value1, String value2, List value3, Object value4, String value5) {
+    public BagOfPrimitives(int value1, String value2, List value3, int [] value4, String value5) {
         this.value1 = value1;
         this.value2 = value2;
         this.value3 = value3;
@@ -25,12 +26,12 @@ class BagOfPrimitives {
         value2 = "abc";
         value3.add(10);
         value3.add(15);
-        value4 = new int[] {1, 2, 3};
+        value4 = new int[]{1, 2, 3};
         String value5=null;
 
     }
 
-    @Override
+   /* @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -43,6 +44,23 @@ class BagOfPrimitives {
         if (value5 != that.value5) return false;
         if (value2 != null) return value2.equals(that.value2);
         else return that.value2 == null;
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BagOfPrimitives that = (BagOfPrimitives) o;
+        return value1 == that.value1 &&
+                value2.equals(that.value2) &&
+                value3.equals(that.value3) &&
+                value4.equals(that.value4) &&
+                value5.equals(that.value5);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value1, value2, value3, value4, value5);
     }
 
     @Override
