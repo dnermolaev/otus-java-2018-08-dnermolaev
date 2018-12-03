@@ -2,8 +2,6 @@ package home;
 
 import com.google.gson.Gson;
 
-import javax.json.*;
-
 import java.io.*;
 import java.util.List;
 
@@ -36,15 +34,6 @@ public class Main {
         System.out.println(obj.value3.equals(obj2.value3));
         System.out.println(obj.value4.equals(obj2.value4));
 
-
-
-
-
-        /*
-        JsonReader reader = Json.createReader(new StringReader(json));
-        BagOfPrimitives obj2 = (BagOfPrimitives)reader.read();
-            System.out.println(obj.equals(obj2));
-            System.out.println(obj2);*/
         }
 
     }

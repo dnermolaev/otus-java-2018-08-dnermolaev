@@ -14,22 +14,13 @@ public class Serialization {
         JsonObjectBuilder builder;
 
         if (obj == null) {
-
-            JsonValue jv= JsonValue.NULL;
-
-            builder =  Json.createObjectBuilder().add(jv.getClass().getTypeName(), jv);
-            jsonst = builder.build();
+            return JsonValue.NULL.toString();
         }
         else
         if (obj.getClass().isArray()|| obj instanceof Collection) {
-
-            builder = Json.createObjectBuilder().add(obj.getClass().getSimpleName(),arrayBuilder(obj));
-
-            jsonst = builder.build();
-
+            JsonArrayBuilder jsonArrayBuilder = arrayBuilder(obj);
+            return jsonArrayBuilder.build().toString();
         }
-
-
             else {
 
             Field[] fields = obj.getClass().getDeclaredFields();

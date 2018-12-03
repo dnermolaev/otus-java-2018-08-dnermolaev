@@ -31,21 +31,6 @@ class BagOfPrimitives {
 
     }
 
-   /* @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        BagOfPrimitives that = (BagOfPrimitives) o;
-
-        if (value1 != that.value1) return false;
-        if (value3 != that.value3) return false;
-        if (value4 != that.value4) return false;
-        if (value5 != that.value5) return false;
-        if (value2 != null) return value2.equals(that.value2);
-        else return that.value2 == null;
-    }*/
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
