@@ -1,41 +1,42 @@
 package home;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
-public class ATMDepartment implements ATMCommand {
+public class ATMDepartment {
 
-    private ATM atm;
-    private Printer print;
+    List<ATM> atmList;
+    List<ATMCommand> commands;
 
-    public ATMDepartment(ATM atm, Printer print) {
-        this.atm = atm;
-        this.print = print;
+    public ATMDepartment(List<ATM> atmList) {
+        this.atmList = atmList;
+        commands = new ArrayList<>();
     }
 
-    public static Memory saveToMemory (ATM atm) {
-        System.out.println("Saving " + atm.ATMName);
-        System.out.println(atm.cashMap);
 
-        Map<Cash.CashType, Integer> tmpCashMap = new EnumMap<Cash.CashType, Integer>(Cash.CashType.class);
+    public void processCommands(List<ATM> atmList) throws IncorrectAmountException {
+        for (ATM atm : atmList) {
+            commands.add(atm);
 
-        tmpCashMap.putAll(atm.cashMap);
-        return new Memory(tmpCashMap);
-
+            for (ATMCommand command:commands) {
+                command.execute(atm);
+            }
+            commands.clear();
+        }
     }
 
-    public static void restoreFromMemory (ATM atm, Memory memory){
-
-        atm.cashMap.putAll(memory.getSavedState());
-
-        System.out.println("ATM " + atm.ATMName + " state after restore from memory " + atm.cashMap);
+    public void saveToMemory (List<ATM> atmList) {
+        for (ATM atm:atmList){
+        atm.saveToMemoryATM(atm);}
     }
 
-    @Override
-    public void  execute() {print.action(atm);}
+    public void restoreFromMemory (List<ATM> atmList){
+        Save save = new Save();
 
-
-
-
-
+        for (ATM atm:atmList) {
+            atm.restoreFromMemoryATM(atm, save.get(atm));
+        }
+    }
 }

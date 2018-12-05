@@ -3,6 +3,5 @@ package home;
 @FunctionalInterface
 public interface ATMCommand {
 
-    void execute() throws IncorrectAmountException;
-
+    void  execute(ATM atm) throws IncorrectAmountException;
 }

@@ -2,17 +2,18 @@ package home;
 
 import java.util.*;
 
-import static home.ATMRequest.atm;
 
 public class Save {
 
-    //protected static final Map<String, Memory> savedAtmStates = new HashMap<>();
-    protected static final List <Memory> savedAtmStatesList = new ArrayList<>();
+    protected static final Map<String, Memory> savedAtmStatesMap = new HashMap<>();
+    //protected static final List <Memory> savedAtmStatesList = new ArrayList<>();
 
-    public void add (Memory memory){
-        savedAtmStatesList.add(memory);
+    public void add (ATM atm, Memory memory){savedAtmStatesMap.put(atm.ATMName,memory);
+        //savedAtmStatesList.add(memory);
+
+
     }
 
-    public Memory get (int index){
-        return savedAtmStatesList.get(index);}
+    public Memory get (ATM atm){
+        return savedAtmStatesMap.get(atm.ATMName);}
 }

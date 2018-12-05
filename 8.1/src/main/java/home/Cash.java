@@ -15,9 +15,7 @@ public class Cash{
     notes5000
 }
 
-    static Map <CashType, Integer> cashMap1 = new EnumMap<CashType, Integer>(CashType.class);
-    static Map <CashType, Integer> cashMap2 = new EnumMap<CashType, Integer>(CashType.class);
-    static Map <CashType, Integer> cashMap3 = new EnumMap<CashType, Integer>(CashType.class);
+
 
 
 }
