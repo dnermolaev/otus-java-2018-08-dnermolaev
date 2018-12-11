@@ -4,7 +4,7 @@ public class ATMRequest implements ATMCommand  {
 
     protected static OperationType operationType;
     private ATMRequestState state;
-    protected static Cash.CashType notes;
+    protected static CashType notes;
     static int amount;
     static int sum;
 
@@ -24,7 +24,7 @@ public class ATMRequest implements ATMCommand  {
         deposit,
     }
 
-    public ATMRequest(OperationType operationType, ATM atm, Cash.CashType notes, int amount){
+    public ATMRequest(OperationType operationType, ATM atm, CashType notes, int amount){
         atm = atm;
         this.amount = amount;
         this.operationType=operationType;

@@ -3,7 +3,7 @@ package home;
 import java.util.*;
 
 import static home.ATMRequest.OperationType.*;
-import static home.Cash.*;
+
 
 public class Main {
 
@@ -42,7 +42,7 @@ public class Main {
 
         System.out.println("Total ATM's balance: ");
 
-        atmDepartment.processCommands(atmList);
+        atmDepartment.getBalances(atmList);
 
         atmDepartment.saveToMemory(atmList);
 
@@ -50,5 +50,6 @@ public class Main {
         atm1.processCommands(atm1);
 
         atmDepartment.restoreFromMemory(atmList);
+
     }
 }

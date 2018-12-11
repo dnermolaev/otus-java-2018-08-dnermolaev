@@ -7,7 +7,7 @@ public class Printer {
 
         System.out.println(atm.ATMName);
 
-        System.out.println("Balance: "+atm.getBalance(atm));
+        System.out.println("Balance: "+atm.getBalance());
         System.out.println(atm.cashMap);
         System.out.println();
 

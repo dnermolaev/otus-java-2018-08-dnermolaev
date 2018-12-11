@@ -8,23 +8,16 @@ import java.util.Map;
 public class ATMDepartment {
 
     List<ATM> atmList;
-    List<ATMCommand> commands;
 
     public ATMDepartment(List<ATM> atmList) {
         this.atmList = atmList;
-        commands = new ArrayList<>();
     }
 
 
-    public void processCommands(List<ATM> atmList) throws IncorrectAmountException {
+    public void getBalances(List<ATM> atmList) throws IncorrectAmountException {
         for (ATM atm : atmList) {
-            commands.add(atm);
-
-            for (ATMCommand command:commands) {
-                command.execute(atm);
+            atm.execute(atm);
             }
-            commands.clear();
-        }
     }
 
     public void saveToMemory (List<ATM> atmList) {
