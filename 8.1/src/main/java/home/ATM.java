@@ -5,87 +5,74 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
-public class ATM{
+public class ATM implements Cloneable{
 
     public Map<CashType, Integer> cashMap;
-    public String ATMName;
+    public String atmName;
     public Printer print;
     List<ATMCommand> commands;
     Save save;
 
 
-    public ATM(String ATMName){
+    public ATM(String atmName)  {
         cashMap = new EnumMap<CashType, Integer>(CashType.class);
         //this.cashMap=cashMap;
-        this.ATMName = ATMName;
+        this.atmName = atmName;
         commands = new ArrayList<>();
         save = new Save();
+
     }
 
+
     public long getBalance (){
-
-        /*long balance = atm.cashMap.get(Cash.CashType.notes50)*50+atm.cashMap.get(Cash.CashType.notes100)*100
-                +atm.cashMap.get(Cash.CashType.notes500)*500+atm.cashMap.get(Cash.CashType.notes1000)*1000
-            + atm.cashMap.get(Cash.CashType.notes5000)*5000;*/
-
-
         long balance = 0;
 
         for (Map.Entry<CashType, Integer> entry : this.cashMap.entrySet()) {
-
             CashType key = entry.getKey();
             int value = entry.getValue();
-            int nominal = key.getNominal();;
-            /*switch (key) {
-                case notes50:
-                    nominal = 50;
-                    break;
-                case notes100:
-                    nominal = 100;
-                    break;
-                case notes500:
-                    nominal = 500;
-                    break;
-                case notes1000:
-                    nominal = 1000;
-                    break;
-                case notes5000:
-                    nominal = 5000;
-                    break;
-            }*/
-            balance += nominal * value;
+            int nominal = key.getNominal();
+             balance += nominal * value;
         }
         return balance;
     }
 
-     public void execute(ATM atm) {
-
+     public void execute() {
+        //ATM atm=this.getAtm();
         print = new Printer();
-        print.action(atm);}
+        print.action(this);}
 
-    public void processCommands(ATM atm) throws IncorrectAmountException {
+    public void processCommands() throws IncorrectAmountException {
 
             for (ATMCommand command:commands) {
-                command.execute(atm);
+                command.execute(this);
             }
             commands.clear();
         }
 
-    public Memory saveToMemoryATM (ATM atm) {
+    public Memory saveToMemoryATM () {
 
-        System.out.println("Saving " + atm.ATMName);
-        System.out.println(atm.cashMap);
+        System.out.println("Saving " + this.atmName);
+        System.out.println(this.cashMap);
 
         Map<CashType, Integer> tmpCashMap = new EnumMap<CashType, Integer>(CashType.class);
-        tmpCashMap.putAll(atm.cashMap);
-        save.add(atm,new Memory(tmpCashMap));
+        tmpCashMap.putAll(this.cashMap);
+        save.add(this,new Memory(tmpCashMap));
         return new Memory(tmpCashMap);
     }
 
-    public void restoreFromMemoryATM (ATM atm, Memory memory){
-        memory=save.get(atm);
-        atm.cashMap.putAll(memory.getSavedState());
-        System.out.println("ATM " + atm.ATMName + " state after restore from memory " + atm.cashMap);
+    public void restoreFromMemoryATM (Memory memory){
+        memory=save.get(this);
+        this.cashMap.putAll(memory.getSavedState());
+        System.out.println("ATM " + this.atmName + " state after restore from memory " + this.cashMap);
+        System.out.println("Balance: " + this.getBalance());
+    }
+
+    public void addCommand(ATMRequest atmRequest) {
+        commands.add(atmRequest);
+    }
+
+    public void putCash(CashType cashType, int i) {
+        cashMap.put(cashType,i);
     }
 }
 

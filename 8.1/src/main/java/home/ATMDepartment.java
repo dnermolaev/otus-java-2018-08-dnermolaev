@@ -14,22 +14,22 @@ public class ATMDepartment {
     }
 
 
-    public void getBalances(List<ATM> atmList) throws IncorrectAmountException {
+    public void getBalances() throws IncorrectAmountException {
         for (ATM atm : atmList) {
-            atm.execute(atm);
+            atm.execute();
             }
     }
 
-    public void saveToMemory (List<ATM> atmList) {
+    public void saveToMemory () {
         for (ATM atm:atmList){
-        atm.saveToMemoryATM(atm);}
+        atm.saveToMemoryATM();}
     }
 
-    public void restoreFromMemory (List<ATM> atmList){
+    public void restoreFromMemory (){
         Save save = new Save();
 
         for (ATM atm:atmList) {
-            atm.restoreFromMemoryATM(atm, save.get(atm));
+            atm.restoreFromMemoryATM(save.get(atm));
         }
     }
 }

@@ -16,9 +16,9 @@ public enum ATMRequestState {
 
     WithdrawMoney {
         public void doAction(ATMRequest request, ATM atm) throws IncorrectAmountException {
-            System.out.println(atm.ATMName);
+            System.out.println(atm.atmName);
 
-                if (atm.getBalance() < ATMRequest.sum || sum%50!=0) {
+                if (atm.getBalance() < sum || sum%50!=0) {
                     throw new IncorrectAmountException("Incorrect withdrawal amount");
                 } else {
                     while (sum>0) {
@@ -67,8 +67,8 @@ public enum ATMRequestState {
 
     DepositMoney {
         public void doAction (ATMRequest request, ATM atm){
-            System.out.println(atm.ATMName);
-            atm.cashMap.put(notes, atm.cashMap.get(notes)+ATMRequest.amount);
+            System.out.println(atm.atmName);
+            atm.cashMap.put(notes, atm.cashMap.get(notes)+ amount);
 
             long newBalance = atm.getBalance();
 
