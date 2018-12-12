@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class ATMDepartment {
 
-    List<ATM> atmList;
+    private List<ATM> atmList;
 
     public ATMDepartment(List<ATM> atmList) {
         this.atmList = atmList;

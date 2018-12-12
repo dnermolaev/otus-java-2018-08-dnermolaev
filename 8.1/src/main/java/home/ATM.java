@@ -5,14 +5,13 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
-public class ATM implements Cloneable{
+public class ATM {
 
-    public Map<CashType, Integer> cashMap;
-    public String atmName;
-    public Printer print;
-    List<ATMCommand> commands;
-    Save save;
-
+    private Map<CashType, Integer> cashMap;
+    private String atmName;
+    private Printer print;
+    private List<ATMCommand> commands;
+    private Save save;
 
     public ATM(String atmName)  {
         cashMap = new EnumMap<CashType, Integer>(CashType.class);
@@ -20,9 +19,15 @@ public class ATM implements Cloneable{
         this.atmName = atmName;
         commands = new ArrayList<>();
         save = new Save();
-
     }
 
+    public String getAtmName() {
+        return atmName;
+    }
+
+    public Map<CashType, Integer> getCashMap() {
+        return cashMap;
+    }
 
     public long getBalance (){
         long balance = 0;
