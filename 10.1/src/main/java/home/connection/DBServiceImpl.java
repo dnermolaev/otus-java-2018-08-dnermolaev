@@ -54,9 +54,8 @@ public class DBServiceImpl implements DBService {
             Field[] fields = user.getClass().getDeclaredFields();
 
             StringBuilder values=new StringBuilder();
-            for (int i=0; i<3; i++){
-                System.out.println("1");
-                 values.append('?') ;
+            for (int i=0; i<fields.length; i++){
+                values.append('?') ;
                 values.append(',') ;
             }
             values.deleteCharAt(values.length()-1);
@@ -70,7 +69,6 @@ public class DBServiceImpl implements DBService {
             columns.deleteCharAt(columns.length()-1);
 
             INSERT_USER = String.format(INSERT_USER, user.getClass().getSimpleName(),columns,values);
-            System.out.println(INSERT_USER);
             exec.execUpdate(INSERT_USER, statement -> {
 
                 for (Field field:fields) {
