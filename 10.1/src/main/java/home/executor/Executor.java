@@ -1,8 +1,7 @@
 package home.executor;
 
+import home.DBServiceException;
 import home.handler.TResultHandler;
-
-import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 
 
@@ -21,27 +20,34 @@ public class Executor {
         }
     }*/
 
-    public <T> T execQuery(String query, TResultHandler<T> handler) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public <T> T execQuery(String query, TResultHandler<T> handler) throws DBServiceException {
         try(Statement stmt = connection.createStatement()) {
+            getConnection().setAutoCommit(false);
             stmt.execute(query);
             ResultSet result = stmt.getResultSet();
             return handler.handle(result);
+        } catch (SQLException e) {
+            throw new DBServiceException(e.toString());
         }
     }
 
-    public void execUpdate(String update, ExecuteHandler prepare) throws IllegalAccessException {
+    public void execUpdate(String update, ExecuteHandler prepare) throws DBServiceException {
         try{
-        PreparedStatement stmt = connection.prepareStatement(update, Statement.RETURN_GENERATED_KEYS);
-        prepare.accept(stmt);
-        stmt.close();
-    } catch (SQLException e) {
-        e.printStackTrace();
+            getConnection().setAutoCommit(false);
+            PreparedStatement stmt = connection.prepareStatement(update, Statement.RETURN_GENERATED_KEYS);
+            prepare.accept(stmt);
+            stmt.close();
+        } catch (SQLException e) {
+            throw new DBServiceException(e.toString());
     }}
 
-    public int execUpdate(String update) throws SQLException {
+    public int execUpdate(String update) throws DBServiceException {
         try (Statement stmt = connection.createStatement()) {
+            getConnection().setAutoCommit(false);
             stmt.execute(update);
             return stmt.getUpdateCount();
+        } catch (SQLException e) {
+            throw new DBServiceException(e.toString());
         }
     }
 
@@ -51,6 +57,7 @@ public class Executor {
 
     @FunctionalInterface
     public interface ExecuteHandler {
-    void accept(PreparedStatement statement) throws SQLException, IllegalAccessException;
+    void accept(PreparedStatement statement) throws DBServiceException
+            ;
     }
 }
