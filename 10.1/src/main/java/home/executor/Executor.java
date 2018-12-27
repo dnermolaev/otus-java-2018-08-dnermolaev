@@ -8,8 +8,13 @@ import java.sql.*;
 public class Executor {
     private final Connection connection;
 
-    public Executor(Connection connection) {
+    public Executor(Connection connection) throws DBServiceException {
         this.connection = connection;
+        try {
+            getConnection().setAutoCommit(false);
+        } catch (SQLException e) {
+            throw new DBServiceException(e.toString());
+        }
     }
 
     /*public void execQuery(String query, ResultHandler handler) throws SQLException {
@@ -22,7 +27,7 @@ public class Executor {
 
     public <T> T execQuery(String query, TResultHandler<T> handler) throws DBServiceException {
         try(Statement stmt = connection.createStatement()) {
-            getConnection().setAutoCommit(false);
+
             stmt.execute(query);
             ResultSet result = stmt.getResultSet();
             return handler.handle(result);
@@ -33,7 +38,7 @@ public class Executor {
 
     public void execUpdate(String update, ExecuteHandler prepare) throws DBServiceException {
         try{
-            getConnection().setAutoCommit(false);
+
             PreparedStatement stmt = connection.prepareStatement(update, Statement.RETURN_GENERATED_KEYS);
             prepare.accept(stmt);
             stmt.close();
@@ -43,7 +48,7 @@ public class Executor {
 
     public int execUpdate(String update) throws DBServiceException {
         try (Statement stmt = connection.createStatement()) {
-            getConnection().setAutoCommit(false);
+
             stmt.execute(update);
             return stmt.getUpdateCount();
         } catch (SQLException e) {
@@ -57,7 +62,6 @@ public class Executor {
 
     @FunctionalInterface
     public interface ExecuteHandler {
-    void accept(PreparedStatement statement) throws DBServiceException
-            ;
+    void accept(PreparedStatement statement) throws DBServiceException;
     }
 }
