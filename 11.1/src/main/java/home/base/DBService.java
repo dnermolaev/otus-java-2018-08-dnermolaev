@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface DBService extends AutoCloseable {
-    String getMetaData();
+    String getMetaData() throws DBServiceException;
 
     void prepareTables(Class clazz) throws DBServiceException;
 

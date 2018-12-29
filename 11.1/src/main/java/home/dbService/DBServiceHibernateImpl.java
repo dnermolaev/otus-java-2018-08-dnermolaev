@@ -1,21 +1,23 @@
 package home.dbService;
 
-import home.base.EmptyDataSet;
-import home.base.PhoneDataSet;
-import home.base.AdressDataSet;
-import home.base.UsersDataSet;
+import home.DBServiceException;
+import home.base.*;
 import home.dao.UsersDataSetDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 import org.hibernate.service.ServiceRegistry;
 
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.function.Function;
 
-public class DBServiceHibernateImpl extends DBServiceImpl {
+public class DBServiceHibernateImpl implements DBService {
 
     private final SessionFactory sessionFactory;
 
@@ -49,6 +51,49 @@ public class DBServiceHibernateImpl extends DBServiceImpl {
         builder.applySettings(configuration.getProperties());
         ServiceRegistry serviceRegistry = builder.build();
         return configuration.buildSessionFactory(serviceRegistry);
+    }
+
+    @Override
+    public String getMetaData()throws DBServiceException {
+
+        try {
+            Connection connection = sessionFactory. getSessionFactoryOptions().getServiceRegistry().
+                    getService(ConnectionProvider.class).getConnection();
+
+            DatabaseMetaData metaData = connection.getMetaData();
+
+            return "Connected to: " + metaData.getURL() + "\n" +
+                    "DB name: " + metaData.getDatabaseProductName() + "\n" +
+                    "DB version: " +metaData.getDatabaseProductVersion() + "\n" +
+                    "Driver: " + metaData.getDriverName();
+        } catch (SQLException e) {
+            new DBServiceException(e.toString());
+            return e.getMessage();
+        }
+    }
+
+    @Override
+    public void prepareTables(Class clazz) throws DBServiceException {
+        System.out.println("Incorrect method in hibernate implementation");
+    }
+
+    @Override
+    public <T extends DataSet> void save(T user) throws DBServiceException {
+        try (Session session = sessionFactory.openSession()) {
+            //UserDataSetDAO dao = new UserDataSetDAO(session);
+            //dao.save(dataSet);
+            session.save(user);
+        }
+    }
+
+    @Override
+    public <T extends DataSet> T load(Class<T> clazz, int id) throws DBServiceException {
+        return null;
+    }
+
+    @Override
+    public void deleteTables() throws DBServiceException {
+
     }
 
     public String getLocalStatus() {
@@ -99,4 +144,8 @@ public class DBServiceHibernateImpl extends DBServiceImpl {
         }
     }
 
+    @Override
+    public void close() throws Exception {
+
+    }
 }

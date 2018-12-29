@@ -26,6 +26,7 @@ public class Main {
 
         DBService db =new DBServiceHibernateImpl();
         System.out.println("Status: " + db.getLocalStatus());
+        System.out.println(db.getMetaData());
 
         UsersDataSet user1 = new UsersDataSet("Dima",30, new AdressDataSet("Sovetskaya"),
                 new ArrayList<PhoneDataSet>());
