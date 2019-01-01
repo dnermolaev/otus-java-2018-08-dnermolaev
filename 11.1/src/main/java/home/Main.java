@@ -61,7 +61,7 @@ public class Main {
         }
         System.out.println("--------------------------------------------------");*/
 
-       //db.close();
+       db.close();
         //jdbc.deleteTables();
     }
 
