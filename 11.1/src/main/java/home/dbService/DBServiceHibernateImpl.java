@@ -73,12 +73,14 @@ public class DBServiceHibernateImpl implements DBService {
     }
 
     @Override
-    public void prepareTables(Class clazz) throws DBServiceException {
-        System.out.println("Incorrect method in hibernate implementation");
+    public String getLocalStatus() {
+        return runInSession(session -> {
+            return session.getTransaction().getStatus().name();
+        });
     }
 
     @Override
-    public <T extends DataSet> void save(T user) throws DBServiceException {
+    public  <T extends DataSet> void save(T user)throws DBServiceException {
         try (Session session = sessionFactory.openSession()) {
             //UserDataSetDAO dao = new UserDataSetDAO(session);
             //dao.save(dataSet);
@@ -87,36 +89,14 @@ public class DBServiceHibernateImpl implements DBService {
     }
 
     @Override
-    public <T extends DataSet> T load(Class<T> clazz, int id) throws DBServiceException {
-        return null;
-    }
-
-    @Override
-    public void deleteTables() throws DBServiceException {
-
-    }
-
-    public String getLocalStatus() {
-        return runInSession(session -> {
-            return session.getTransaction().getStatus().name();
-        });
-    }
-
-    public void save(UsersDataSet dataSet) {
-        try (Session session = sessionFactory.openSession()) {
-            //UserDataSetDAO dao = new UserDataSetDAO(session);
-            //dao.save(dataSet);
-            session.save(dataSet);
-        }
-    }
-
-    public UsersDataSet read(long id) {
+    public UsersDataSet load(long id) {
         return runInSession(session -> {
             UsersDataSetDAO dao = new UsersDataSetDAO(session);
             return dao.read(id);
         });
     }
 
+    @Override
     public UsersDataSet readByName(String name) {
         return runInSession(session -> {
             UsersDataSetDAO dao = new UsersDataSetDAO(session);
@@ -124,6 +104,7 @@ public class DBServiceHibernateImpl implements DBService {
         });
     }
 
+    @Override
     public List<UsersDataSet> readAll() {
         return runInSession(session -> {
             UsersDataSetDAO dao = new UsersDataSetDAO(session);
@@ -131,7 +112,8 @@ public class DBServiceHibernateImpl implements DBService {
         });
     }
 
-    public void shutdown() {
+    @Override
+    public void close() {
         sessionFactory.close();
     }
 
@@ -142,10 +124,5 @@ public class DBServiceHibernateImpl implements DBService {
             transaction.commit();
             return result;
         }
-    }
-
-    @Override
-    public void close() throws Exception {
-
     }
 }

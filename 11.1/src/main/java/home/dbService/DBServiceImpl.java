@@ -8,26 +8,25 @@ import home.executor.Executor;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class DBServiceImpl implements DBService {
 
     private final Connection connection;
     String tableName;
-    private static String CREATE_TABLE = "create table if not exists %s (id bigint auto_increment, " +
-            "name varchar(255), " + "age int(3), " + "primary key (id))";
     private static String INSERT_USER = "insert into %s (%s) values (%s)";
-    private static String DELETE_TABLE = "drop table %s";
-    private static String SELECT_USER = "select id, name, age from %s where id=%s";
+    private static String SELECT_USER = "select * from %s where id=%s";
 
     public DBServiceImpl() {
         connection = ConnectionHelper.getConnection();
     }
-
-
 
     @Override
     public String getMetaData() {
@@ -40,15 +39,6 @@ public class DBServiceImpl implements DBService {
             e.printStackTrace();
             return e.getMessage();
         }
-    }
-
-    @Override
-    public void prepareTables(Class clazz) throws DBServiceException {
-        Executor exec = new Executor(getConnection());
-        CREATE_TABLE = String.format(CREATE_TABLE, clazz.getSimpleName());
-        exec.execUpdate(CREATE_TABLE);
-        System.out.println("Table created");
-        this.tableName=tableName;
     }
 
     @Override
@@ -77,7 +67,7 @@ public class DBServiceImpl implements DBService {
 
                 for (Field field:fields) {
                     field.setAccessible(true);
-                    if (field.getName().equalsIgnoreCase("id")) {
+                   /* if (field.getName().equalsIgnoreCase("id")) {
                         try {
                             if (field.getLong(user)!=0){
                                 statement.setLong(1, field.getLong(user));}
@@ -87,17 +77,31 @@ public class DBServiceImpl implements DBService {
                         } catch (IllegalAccessException | SQLException e) {
                             throw new DBServiceException(e.toString());
                         }
-                    }
+                    }*/
                     if (field.getName().equalsIgnoreCase("name")) {
                         try {
-                            statement.setString(2, (String) field.get(user));
+                            statement.setString(1, (String) field.get(user));
                         } catch (SQLException | IllegalAccessException e) {
                             throw new DBServiceException(e.toString());
                         }
                     }
                     if (field.getName().equalsIgnoreCase("age")) {
                         try {
-                            statement.setInt(3, field.getInt(user));
+                            statement.setInt(2, field.getInt(user));
+                        } catch (SQLException | IllegalAccessException e) {
+                            throw new DBServiceException(e.toString());
+                        }
+                    }
+                    if (field.getName().equalsIgnoreCase("homeAdress")) {
+                        try {
+                            statement.setString(3, String.valueOf(field.get(user)));
+                        } catch (SQLException | IllegalAccessException e) {
+                            throw new DBServiceException(e.toString());
+                        }
+                    }
+                    if (field.getName().equalsIgnoreCase("phones")) {
+                        try {
+                            statement.setString(4, field.get(user).toString());
                         } catch (SQLException | IllegalAccessException e) {
                             throw new DBServiceException(e.toString());
                         }
@@ -147,55 +151,58 @@ public class DBServiceImpl implements DBService {
     }
 
     @Override
-    public <T extends DataSet> T load(Class <T> clazz, int id) throws DBServiceException {
+    public UsersDataSet load(long id) throws DBServiceException {
         Executor exec = new Executor(getConnection());
 
-        DataSet dataSet = null;
+        UsersDataSet dataSet = null;
         try {
-            dataSet = exec.execQuery(String.format(SELECT_USER, clazz.getSimpleName(), id), result -> {
+            dataSet = exec.execQuery(String.format(SELECT_USER, "UsersDataSet", id), result -> {
                 try {
                     result.next();
                 } catch (SQLException e) {
                     throw new DBServiceException(e.toString());
                 }
-
-                Class []params ={int.class, String.class, int.class};
-                T user = null;
+                UsersDataSet user = null;
                 try {
-                    user = (T)clazz.getConstructor().newInstance();
-                            //clazz.getConstructor(params).newInstance(result.getInt("id"),
-                            //result.getString("name"), result.getInt("age"));
-
+                    user = new UsersDataSet();
+                    Class clazz=UsersDataSet.class;
                     Field fields [] =clazz.getDeclaredFields();
                     for (Field field:fields){
                         field.setAccessible(true);
                         Field f = user.getClass().getDeclaredField(field.getName());
                         f.setAccessible(true);
-                        f.set(user, result.getObject(field.getName()));
-                        //user.field.getName()=result.getObject(field.getName());
-
+                        //System.out.println(f.getType());
+                        //System.out.println(f.getGenericType() instanceof ParameterizedType);
+                        if (f.getType().isPrimitive()==true)
+                        {f.set(user, result.getObject(field.getName()));}
+                        else {
+                            Class []params ={result.getObject(field.getName()).getClass()};
+                            if (f.getGenericType() instanceof ParameterizedType) {
+                                ParameterizedType aType = (ParameterizedType) f.getGenericType();
+                                Type[] fieldArgTypes = aType.getActualTypeArguments();
+                                for (Type fieldArgType : fieldArgTypes) {
+                                    Class fieldArgClass = (Class) fieldArgType;
+                                    List <Object> list = new ArrayList<>();
+                                    list.add(fieldArgClass.getConstructor(params).
+                                        newInstance(result.getObject(field.getName())));
+                                    f.set(user, list);
+                                }
+                            }
+                            else {
+                            f.set(user, f.getType().getConstructor(params).
+                                    newInstance(result.getObject(field.getName())));}
+                        }
                     }
-                } catch (InstantiationException | NoSuchMethodException | IllegalAccessException |
-                        InvocationTargetException | NoSuchFieldException | SQLException e) {
+                } catch (IllegalAccessException | NoSuchFieldException | SQLException |
+                        InstantiationException | NoSuchMethodException | InvocationTargetException e) {
                     throw new DBServiceException(e.toString());
-
                 }
                 return  user;
-                //new UsersDataSet (result.getInt("id"), result.getString("name"), result.getInt("age"));
             });
         } catch (DBServiceException e) {
             throw new DBServiceException(e.toString());
         }
-        return (T) dataSet;
-    }
-
-    @Override
-    public void deleteTables () throws DBServiceException {
-        tableName="usersdataset";
-        Executor exec = new Executor(getConnection());
-        DELETE_TABLE = String.format(DELETE_TABLE, tableName);
-        exec.execUpdate(DELETE_TABLE);
-        System.out.println("Table dropped");
+        return dataSet;
     }
 
     @Override
@@ -203,15 +210,6 @@ public class DBServiceImpl implements DBService {
         return null;
     }
 
-    @Override
-    public void save(UsersDataSet dataSet) {
-
-    }
-
-    @Override
-    public UsersDataSet read(long id) {
-        return null;
-    }
 
     @Override
     public UsersDataSet readByName(String name) {
@@ -223,14 +221,14 @@ public class DBServiceImpl implements DBService {
         return null;
     }
 
-    @Override
-    public void shutdown() {
-
-    }
 
     @Override
-    public void close() throws Exception {
-        connection.close();
+    public void close() {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         System.out.println("Connection closed");
         System.out.println();
     }

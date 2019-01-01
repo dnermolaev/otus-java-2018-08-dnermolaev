@@ -28,8 +28,9 @@ public class PhoneDataSet extends DataSet {
 
     @Override
     public String toString() {
-        return "PhoneDataSet{" +
+        return number;
+                /*"PhoneDataSet{" +
                 "number='" + number + '\'' +
-                '}';
+                '}';*/
     }
 }

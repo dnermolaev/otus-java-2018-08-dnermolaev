@@ -28,7 +28,8 @@ public class UsersDataSet extends DataSet {
     }
 
     public UsersDataSet(String name,int age, AdressDataSet adress, List<PhoneDataSet> phones) {
-        this.setId(-1);
+        //this.setId(-1);
+        id=0;
         this.name = name;
         this.age=age;
         this.homeAdress=adress;

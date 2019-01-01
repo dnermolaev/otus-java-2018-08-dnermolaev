@@ -6,6 +6,7 @@ import home.base.PhoneDataSet;
 import home.base.UsersDataSet;
 import home.dbService.*;
 
+import java.sql.JDBCType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,8 +21,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        //JdbcDBHelper jdbc=new JdbcDBHelper();
+        //jdbc.prepareTables(UsersDataSet.class);
         //DBService db =new DBServiceImpl();
-        //db.prepareTables(UsersDataSet.class);
         //System.out.println(db.getMetaData());
 
         DBService db =new DBServiceHibernateImpl();
@@ -43,11 +45,11 @@ public class Main {
         db.save(user2);
         db.save(user3);
         System.out.println("--------------------------------------------------");
-        UsersDataSet dataSet = db.read(1);
-        System.out.println(dataSet);
+        UsersDataSet dataSet = db.load(1);
+        System.out.println(dataSet.toString());
         System.out.println("--------------------------------------------------");
 
-        dataSet = db.readByName("" +
+        /*dataSet = db.readByName("" +
                 "" +
                 "Lida");
         System.out.println(dataSet);
@@ -57,14 +59,10 @@ public class Main {
         for (UsersDataSet userDataSet : dataSets) {
             System.out.println(userDataSet);
         }
-        System.out.println("--------------------------------------------------");
+        System.out.println("--------------------------------------------------");*/
 
-        db.shutdown();
-
-        /*UsersDataSet user4 = db.load(UsersDataSet.class, 1);
-        System.out.println(user4.toString());
-
-        db.deleteTables();*/
+       //db.close();
+        //jdbc.deleteTables();
     }
 
 
