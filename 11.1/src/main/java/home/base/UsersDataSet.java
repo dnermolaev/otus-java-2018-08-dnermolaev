@@ -21,18 +21,18 @@ public class UsersDataSet extends DataSet {
 
     public void addPhone(PhoneDataSet phone) {
         phones.add(phone);
-        phone.setUsersDataSet(this);
+        phone.setUserDataSet(this);
     }
 
     public UsersDataSet() {
     }
 
-    public UsersDataSet(String name,int age, AdressDataSet adress, List<PhoneDataSet> phones) {
+    public UsersDataSet(String name,int age, AdressDataSet homeAdress, List<PhoneDataSet> phones) {
         //this.setId(-1);
         id=0;
         this.name = name;
         this.age=age;
-        this.homeAdress=adress;
+        this.homeAdress=homeAdress;
         this.phones = phones;
     }
 
@@ -48,9 +48,9 @@ public class UsersDataSet extends DataSet {
 
     public void setAge(int age) { this.age = age;  }
 
-    public AdressDataSet getHomeAdress() { return homeAdress; }
+    public AdressDataSet getAdress() { return homeAdress; }
 
-    public void setAdress(AdressDataSet adress) {  this.homeAdress=adress; }
+    public void setAdress(AdressDataSet homeAdress) {  this.homeAdress=homeAdress; }
 
     public List<PhoneDataSet> getPhones() {
         return phones;
@@ -61,12 +61,13 @@ public class UsersDataSet extends DataSet {
     }
 
     @Override
+    @Transient
     public String toString() {
         return "UserDataSet{" +
                 "id'" + getId() + '\'' +
                 " name='" + name + '\'' +
                 ", age=" +age + '\''+
-                ", adress=" +homeAdress + '\''+
+                ", homeAdress=" +homeAdress + '\''+
                 ", phone=" + phones +
                 '}';
     }

@@ -42,7 +42,7 @@ public class DBServiceImpl implements DBService {
     }
 
     @Override
-    public <T extends DataSet> void save(T user) throws DBServiceException {
+    public void save(UsersDataSet user) throws DBServiceException {
         try {
             Executor exec = new Executor(getConnection());
             Field[] fields = user.getClass().getDeclaredFields();

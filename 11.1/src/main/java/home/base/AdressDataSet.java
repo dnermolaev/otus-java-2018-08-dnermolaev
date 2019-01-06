@@ -12,7 +12,11 @@ public class AdressDataSet extends DataSet {
     /*@OneToOne
     private UsersDataSet userDataSet;
 
-    public void setUsersDataSet(UsersDataSet userDataSet) {this.userDataSet = userDataSet;}*/
+   public void setUsersDataSet(UsersDataSet userDataSet) {this.userDataSet = userDataSet;}
+
+    public UsersDataSet getUserDataSet() {
+        return userDataSet;
+    }*/
 
     public AdressDataSet() {
     }
@@ -21,11 +25,16 @@ public class AdressDataSet extends DataSet {
         this.street = street;
     }
 
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
     public String getStreet() {
         return street;
     }
 
     @Override
+    @Transient
     public String toString() {
         return street;
         /*"AdressDataSet{" +

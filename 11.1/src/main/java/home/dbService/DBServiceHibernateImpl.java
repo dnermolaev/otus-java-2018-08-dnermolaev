@@ -11,6 +11,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;
 import org.hibernate.service.ServiceRegistry;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
@@ -22,9 +23,9 @@ public class DBServiceHibernateImpl implements DBService {
     private final SessionFactory sessionFactory;
 
     public DBServiceHibernateImpl() {
-        Configuration configuration = new Configuration();
+        Configuration configuration = new Configuration()
 
-        configuration.addAnnotatedClass(UsersDataSet.class);
+        /*configuration.addAnnotatedClass(UsersDataSet.class);
         configuration.addAnnotatedClass(PhoneDataSet.class);
         configuration.addAnnotatedClass(AdressDataSet.class);
         configuration.addAnnotatedClass(EmptyDataSet.class);
@@ -37,7 +38,12 @@ public class DBServiceHibernateImpl implements DBService {
         configuration.setProperty("hibernate.show_sql", "true");
         configuration.setProperty("hibernate.hbm2ddl.auto", "create");
         configuration.setProperty("hibernate.connection.useSSL", "false");
-        configuration.setProperty("hibernate.enable_lazy_load_no_trans", "true");
+        configuration.setProperty("hibernate.enable_lazy_load_no_trans", "true");*/
+
+                .configure(new File("config/hibernate.cfg.xml"))
+                .addFile(new File("config/UsersDataSet.hbm.xml"))
+                .addFile(new File("config/PhoneDataSet.hbm.xml"))
+                .addFile(new File("config/AdressDataSet.hbm.xml"));
 
         sessionFactory = createSessionFactory(configuration);
     }
@@ -61,15 +67,22 @@ public class DBServiceHibernateImpl implements DBService {
                     getService(ConnectionProvider.class).getConnection();
 
             DatabaseMetaData metaData = connection.getMetaData();
-
+            sessionFactory.getSessionFactoryOptions().getServiceRegistry().
+                    getService(ConnectionProvider.class).closeConnection(connection);
             return "Connected to: " + metaData.getURL() + "\n" +
                     "DB name: " + metaData.getDatabaseProductName() + "\n" +
                     "DB version: " +metaData.getDatabaseProductVersion() + "\n" +
                     "Driver: " + metaData.getDriverName();
+
+
         } catch (SQLException e) {
             new DBServiceException(e.toString());
             return e.getMessage();
         }
+        finally {
+
+        }
+
     }
 
     @Override
@@ -80,11 +93,11 @@ public class DBServiceHibernateImpl implements DBService {
     }
 
     @Override
-    public  <T extends DataSet> void save(T user)throws DBServiceException {
+    public  void save(UsersDataSet user)throws DBServiceException {
         try (Session session = sessionFactory.openSession()) {
-            //UserDataSetDAO dao = new UserDataSetDAO(session);
-            //dao.save(dataSet);
-            session.save(user);
+            UsersDataSetDAO dao = new UsersDataSetDAO(session);
+            dao.save(user);
+            //session.save(user);
         }
     }
 

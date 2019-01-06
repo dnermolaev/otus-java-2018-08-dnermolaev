@@ -8,10 +8,18 @@ public class PhoneDataSet extends DataSet {
     @Column(name = "number")
     private String number;
 
+    public UsersDataSet getUserDataSet() {
+        return userDataSet;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     @ManyToOne
     private UsersDataSet userDataSet;
 
-    public void setUsersDataSet(UsersDataSet userDataSet) {
+    public void setUserDataSet(UsersDataSet userDataSet) {
         this.userDataSet = userDataSet;
     }
 
