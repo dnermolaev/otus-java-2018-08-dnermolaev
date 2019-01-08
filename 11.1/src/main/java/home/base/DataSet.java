@@ -2,10 +2,10 @@ package home.base;
 
 import javax.persistence.*;
 
-//@MappedSuperclass
+@MappedSuperclass
 public class DataSet {
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
 
     long getId() {

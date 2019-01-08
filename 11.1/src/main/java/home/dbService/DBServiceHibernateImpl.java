@@ -23,14 +23,14 @@ public class DBServiceHibernateImpl implements DBService {
     private final SessionFactory sessionFactory;
 
     public DBServiceHibernateImpl() {
-        Configuration configuration = new Configuration()
+        Configuration configuration = new Configuration();
 
-        /*configuration.addAnnotatedClass(UsersDataSet.class);
+        configuration.addAnnotatedClass(UsersDataSet.class);
         configuration.addAnnotatedClass(PhoneDataSet.class);
         configuration.addAnnotatedClass(AdressDataSet.class);
         configuration.addAnnotatedClass(EmptyDataSet.class);
 
-        configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        /*configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         configuration.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
         configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/db_examp");
         configuration.setProperty("hibernate.connection.username", "dima");
@@ -40,10 +40,10 @@ public class DBServiceHibernateImpl implements DBService {
         configuration.setProperty("hibernate.connection.useSSL", "false");
         configuration.setProperty("hibernate.enable_lazy_load_no_trans", "true");*/
 
-                .configure(new File("config/hibernate.cfg.xml"))
-                .addFile(new File("config/UsersDataSet.hbm.xml"))
+                configuration.configure(new File("src/main/resources/hibernate.cfg.xml"));
+                /*.addFile(new File("config/UsersDataSet.hbm.xml"))
                 .addFile(new File("config/PhoneDataSet.hbm.xml"))
-                .addFile(new File("config/AdressDataSet.hbm.xml"));
+                .addFile(new File("config/AdressDataSet.hbm.xml"));*/
 
         sessionFactory = createSessionFactory(configuration);
     }
