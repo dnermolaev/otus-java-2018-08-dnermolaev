@@ -1,0 +1,27 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>GetUserName</title>
+</head>
+<body>
+<div class="top">
+    <img src="logo.png"/>
+    <br/>
+    <a href="login">Login</a>
+    <a href="admin">Admin</a>
+    <a href="adduser">AddUser</a>
+    <a href="getusername">GetUserName</a>
+    <a href="totalquantity">TotalQuantity</a>
+</div>
+
+<div class="id">
+    <form action="/getusername" method="POST">
+        id: <input type="text" name="id"/>
+        <input type="submit" value="submit">
+    </form>
+    <p>User name: ${userName}</p>
+</div>
+
+</body>
+</html>
