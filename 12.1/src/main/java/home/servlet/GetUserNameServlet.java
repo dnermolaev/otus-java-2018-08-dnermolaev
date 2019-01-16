@@ -3,6 +3,8 @@ package home.servlet;
 import home.DBServiceException;
 import home.base.DBService;
 import home.base.UsersDataSet;
+import home.helpers.FieldsCheck;
+import home.helpers.SetCond;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,11 +22,11 @@ public class GetUserNameServlet extends HttpServlet {
 
     private final TemplateProcessor templateProcessor;
     private String id;
-    DBService db;
+    public DBService db;
 
     public GetUserNameServlet(TemplateProcessor templateProcessor, DBService db) {
         this.templateProcessor = templateProcessor;
-        this.db=db;
+        this.db = db;
     }
 
     private String getPage(String id) throws IOException {
@@ -35,6 +37,9 @@ public class GetUserNameServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) throws ServletException, IOException {
+        String page = getPage(" ");
+        response.getWriter().println(page);
+        response.setStatus(HttpServletResponse.SC_OK);
         doPost(request, response);
     }
 
@@ -43,40 +48,20 @@ public class GetUserNameServlet extends HttpServlet {
 
         String requestId = request.getParameter(ID_PARAMETER_NAME);
 
+        if (requestId != null) {
+            Long id = Long.parseLong(requestId);
 
-            if (requestId != null) {
-                try {
-                    setOK(response);
-                    Long id = Long.parseLong(requestId);
+            String l = db.readNameById(id);
 
-                    String l = db.readNameById(id);
-                    String page = getPage(l); //save to the page
-                    response.getWriter().println(page);
-                }
-                catch (NullPointerException e){
-                    setNotOK(response);
-                    throw new NullPointerException ("There is no such id " + id.toString() +" in DB");
-                }
-
+            if (l.equals("null")) {
+                SetCond.setNotOK(response);
             } else {
-                setOK(response);
-                String l = id;
-                String page = getPage(l); //save to the page
+                SetCond.setOK(response);
+                String page = getPage(l);
                 response.getWriter().println(page);
             }
+        } else {
+            SetCond.setNotOK(response);
         }
-
-    private void setOK(HttpServletResponse response) {
-        response.setContentType("text/html;charset=utf-8");
-        response.setStatus(HttpServletResponse.SC_OK);
-    }
-
-    private void saveToVariable(String requestId) {
-        id = requestId != null ? requestId : id;
-    }
-
-    private void setNotOK(HttpServletResponse response) {
-        response.setContentType("text/html;charset=utf-8");
-        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
     }
 }

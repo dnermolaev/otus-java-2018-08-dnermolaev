@@ -7,7 +7,7 @@ import java.util.List;
 public interface DBService extends AutoCloseable {
     String getMetaData() throws DBServiceException;
 
-    void save(UsersDataSet user)throws DBServiceException;
+    void save(UsersDataSet user) throws DBServiceException;
 
     //<T extends DataSet> T load(Class<T> clazz, int id) throws DBServiceException;
 

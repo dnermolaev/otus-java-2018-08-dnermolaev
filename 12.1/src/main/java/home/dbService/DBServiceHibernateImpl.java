@@ -40,10 +40,10 @@ public class DBServiceHibernateImpl implements DBService {
     }
 
     @Override
-    public String getMetaData()throws DBServiceException {
+    public String getMetaData() throws DBServiceException {
 
         try {
-            Connection connection = sessionFactory. getSessionFactoryOptions().getServiceRegistry().
+            Connection connection = sessionFactory.getSessionFactoryOptions().getServiceRegistry().
                     getService(ConnectionProvider.class).getConnection();
 
             DatabaseMetaData metaData = connection.getMetaData();
@@ -51,15 +51,14 @@ public class DBServiceHibernateImpl implements DBService {
                     getService(ConnectionProvider.class).closeConnection(connection);
             return "Connected to: " + metaData.getURL() + "\n" +
                     "DB name: " + metaData.getDatabaseProductName() + "\n" +
-                    "DB version: " +metaData.getDatabaseProductVersion() + "\n" +
+                    "DB version: " + metaData.getDatabaseProductVersion() + "\n" +
                     "Driver: " + metaData.getDriverName();
 
 
         } catch (SQLException e) {
             new DBServiceException(e.toString());
             return e.getMessage();
-        }
-        finally {
+        } finally {
 
         }
 
@@ -73,7 +72,7 @@ public class DBServiceHibernateImpl implements DBService {
     }
 
     @Override
-    public  void save(UsersDataSet user)throws DBServiceException {
+    public void save(UsersDataSet user) throws DBServiceException {
         try (Session session = sessionFactory.openSession()) {
             trans = session.beginTransaction();
             UsersDataSetDAO dao = new UsersDataSetDAO(session);

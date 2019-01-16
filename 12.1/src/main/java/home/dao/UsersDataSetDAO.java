@@ -34,12 +34,11 @@ public class UsersDataSetDAO {
     }
 
     public String readNameById(long id) {
-        String name = session.createQuery(
+        String name = String.valueOf(session.createQuery(
                 "SELECT name FROM UsersDataSet WHERE id=:id")
                 .setParameter("id", id)
-                .uniqueResult().toString();
-
-        return name;
+                .uniqueResult());
+            return name;
     }
 
     public List<UsersDataSet> readAll() {
@@ -54,7 +53,7 @@ public class UsersDataSetDAO {
     }
 
     public Long getQuantity() {
-        Long quantity =(Long) session.createQuery(
+        Long quantity = (Long) session.createQuery(
                 "SELECT COUNT (id) FROM UsersDataSet")
                 .getSingleResult();
 

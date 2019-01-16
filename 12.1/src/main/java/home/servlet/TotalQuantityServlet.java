@@ -13,13 +13,13 @@ import java.util.Map;
 public class TotalQuantityServlet extends HttpServlet {
 
     private static final String TOTAL_PAGE_TEMPLATE = "totalquantity.html";
-    static DBService db;
+    public static DBService db;
 
     private final TemplateProcessor templateProcessor;
 
     public TotalQuantityServlet(TemplateProcessor templateProcessor, DBService db) {
         this.templateProcessor = templateProcessor;
-        this.db=db;
+        this.db = db;
     }
 
     private static Map<String, Object> createPageVariablesMap(HttpServletRequest request) {
