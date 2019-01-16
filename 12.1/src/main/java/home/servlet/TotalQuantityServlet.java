@@ -13,7 +13,7 @@ import java.util.Map;
 public class TotalQuantityServlet extends HttpServlet {
 
     private static final String TOTAL_PAGE_TEMPLATE = "totalquantity.html";
-    public static DBService db;
+    private static DBService db;
 
     private final TemplateProcessor templateProcessor;
 

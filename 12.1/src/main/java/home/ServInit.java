@@ -8,8 +8,6 @@ import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-import java.io.IOException;
-
 public class ServInit {
     private final static int PORT = 8090;
     private final static String PUBLIC_HTML = "public_html";
@@ -17,7 +15,10 @@ public class ServInit {
     public ServInit() {
     }
 
-    public void run (DBService db) throws Exception {
+    public void run () throws Exception {
+        DBInit dbInit = new DBInit();
+        DBService db=dbInit.putData();
+
         ResourceHandler resourceHandler = new ResourceHandler();
         resourceHandler.setResourceBase(PUBLIC_HTML);
 

@@ -16,13 +16,13 @@ import java.util.Map;
 
 public class GetUserNameServlet extends HttpServlet {
 
-    public static final String ID_PARAMETER_NAME = "id";
+    private static final String ID_PARAMETER_NAME = "id";
     private static final String ID_VARIABLE_NAME = "userName";
     private static final String GETUSERNAME_PAGE_TEMPLATE = "getusername.html";
 
     private final TemplateProcessor templateProcessor;
     private String id;
-    public DBService db;
+    private DBService db;
 
     public GetUserNameServlet(TemplateProcessor templateProcessor, DBService db) {
         this.templateProcessor = templateProcessor;

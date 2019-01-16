@@ -14,7 +14,6 @@ public class DBInit {
 
     }
 
-
     public DBService putData () throws DBServiceException {
         DBService db=new DBServiceHibernateImpl();
         UsersDataSet user1 = new UsersDataSet("Dima", 30, new AdressDataSet("Sovetskaya"),

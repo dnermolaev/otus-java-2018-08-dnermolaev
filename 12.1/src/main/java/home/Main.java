@@ -11,18 +11,10 @@ import home.base.DBService;
  */
 
 public class Main {
-    private final static int PORT = 8090;
-    private final static String PUBLIC_HTML = "public_html";
 
     public static void main(String[] args) throws Exception {
 
-        DBInit dbInit = new DBInit();
-
         ServInit servInit = new ServInit();
-        servInit.run(dbInit.putData());
-
-
+        servInit.run();
     }
-
-
 }

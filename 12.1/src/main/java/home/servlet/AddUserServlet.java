@@ -23,7 +23,7 @@ public class AddUserServlet extends HttpServlet {
     public static final String PARAMETER_NAME[] = {"name", "age", "street", "phonenumber"};
     private static final String ADDUSER_PAGE_TEMPLATE = "adduser.html";
     private final TemplateProcessor templateProcessor;
-    public DBService db;
+    private DBService db;
 
     public AddUserServlet(TemplateProcessor templateProcessor, DBService db) {
         this.templateProcessor = templateProcessor;
