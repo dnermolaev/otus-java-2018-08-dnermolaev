@@ -2,9 +2,9 @@ package home.helpers;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class FieldsCheck {
+public class RequestHelper {
 
-    public static boolean check(HttpServletRequest request, String[] names) {
+    public static boolean isAllAttributesExists(HttpServletRequest request, String[] names) {
         boolean constructExc = true;
         for (String name : names) {
             String requestValue = request.getParameter(name);

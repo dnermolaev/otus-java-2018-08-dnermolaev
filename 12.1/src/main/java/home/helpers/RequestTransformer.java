@@ -9,9 +9,9 @@ import home.base.UsersDataSet;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-public class AddUser {
+public class RequestTransformer {
 
-    public static void add (DBService db, HttpServletRequest request){
+    public static void toUsersDataSet(DBService db, HttpServletRequest request){
         AdressDataSet adress = new AdressDataSet(request.getParameter("street"));
         PhoneDataSet phone = new PhoneDataSet(request.getParameter("phonenumber"));
         UsersDataSet user = new UsersDataSet(request.getParameter("name"),

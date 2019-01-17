@@ -1,6 +1,7 @@
 package home;
 
 import home.base.DBService;
+import home.dbService.DBServiceHibernateImpl;
 
 /**
  * mysql> CREATE USER 'dima'@'localhost' IDENTIFIED BY 'dima';
@@ -14,7 +15,12 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        ServInit servInit = new ServInit();
-        servInit.run();
+        DBService db = new DBServiceHibernateImpl();
+
+        DBTestDataInitializer dbTestDataInitializer = new DBTestDataInitializer();
+        dbTestDataInitializer.intDBWithTestData(db);
+
+        ServerWrapper server = new ServerWrapper();
+        server.run(db);
     }
 }

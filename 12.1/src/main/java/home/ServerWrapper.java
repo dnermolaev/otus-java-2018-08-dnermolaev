@@ -8,16 +8,15 @@ import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-public class ServInit {
+public class ServerWrapper {
     private final static int PORT = 8090;
     private final static String PUBLIC_HTML = "public_html";
 
-    public ServInit() {
+    public ServerWrapper() {
     }
 
-    public void run () throws Exception {
-        DBInit dbInit = new DBInit();
-        DBService db=dbInit.putData();
+    public void run (DBService db) throws Exception {
+
 
         ResourceHandler resourceHandler = new ResourceHandler();
         resourceHandler.setResourceBase(PUBLIC_HTML);

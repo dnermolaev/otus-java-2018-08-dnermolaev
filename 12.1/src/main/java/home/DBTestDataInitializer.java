@@ -8,14 +8,14 @@ import home.dbService.DBServiceHibernateImpl;
 
 import java.util.ArrayList;
 
-public class DBInit {
+public class DBTestDataInitializer {
 
-    public DBInit() throws DBServiceException {
+    public DBTestDataInitializer() throws DBServiceException {
 
     }
 
-    public DBService putData () throws DBServiceException {
-        DBService db=new DBServiceHibernateImpl();
+    public static void intDBWithTestData(DBService db) throws DBServiceException {
+
         UsersDataSet user1 = new UsersDataSet("Dima", 30, new AdressDataSet("Sovetskaya"),
                 new ArrayList<PhoneDataSet>());
         user1.addPhone(new PhoneDataSet("555444"));
@@ -30,6 +30,5 @@ public class DBInit {
         db.save(user1);
         db.save(user2);
         db.save(user3);
-        return db;
     }
 }

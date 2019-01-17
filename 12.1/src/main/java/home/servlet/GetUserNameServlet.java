@@ -1,10 +1,7 @@
 package home.servlet;
 
-import home.DBServiceException;
 import home.base.DBService;
-import home.base.UsersDataSet;
-import home.helpers.FieldsCheck;
-import home.helpers.SetCond;
+import home.helpers.ResponseHelper;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -54,14 +51,14 @@ public class GetUserNameServlet extends HttpServlet {
             String l = db.readNameById(id);
 
             if (l.equals("null")) {
-                SetCond.setNotOK(response);
+                ResponseHelper.setBadRequestStatusv(response);
             } else {
-                SetCond.setOK(response);
+                ResponseHelper.setOKStatus(response);
                 String page = getPage(l);
                 response.getWriter().println(page);
             }
         } else {
-            SetCond.setNotOK(response);
+            ResponseHelper.setBadRequestStatusv(response);
         }
     }
 }
