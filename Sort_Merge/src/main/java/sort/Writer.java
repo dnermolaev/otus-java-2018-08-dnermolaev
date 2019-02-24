@@ -8,6 +8,10 @@ import java.util.List;
 import static sort.ComLineParser.exitByEnterPressed;
 import static sort.ComLineParser.exitMessage;
 
+/**
+ * @author dnermolaev
+ */
+
 public class Writer {
 
     public void write (String outputFileName, List list){

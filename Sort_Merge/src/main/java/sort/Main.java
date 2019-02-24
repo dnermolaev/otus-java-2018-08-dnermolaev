@@ -4,6 +4,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author dnermolaev
+ */
+
 public class Main {
 
     public static void main(String[] args) throws IOException, AttributesException, NumberFormatException {

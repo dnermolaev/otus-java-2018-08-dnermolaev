@@ -10,6 +10,10 @@ import java.util.List;
 import static sort.ComLineParser.exitByEnterPressed;
 import static sort.ComLineParser.exitMessage;
 
+/**
+ * @author dnermolaev
+ */
+
 public class Reader {
 
     public List read(List<String> inputFileNames, ArrayList<String> list) {

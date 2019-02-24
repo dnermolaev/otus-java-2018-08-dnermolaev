@@ -2,6 +2,10 @@ package sort;
 
 import java.util.*;
 
+/**
+ * @author dnermolaev
+ */
+
 public class Sorter<T> implements Algorithm<T> {
     private Algorithm<T> algorithm;
 

@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author dnermolaev
+ */
+
 //класс, отвечаюший за разбор параметров командной строки
 public class ComLineParser {
 

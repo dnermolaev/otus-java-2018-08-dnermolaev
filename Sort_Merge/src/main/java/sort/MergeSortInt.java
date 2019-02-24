@@ -1,8 +1,11 @@
 package sort;
 
 import java.util.*;
-
 import static sort.ComLineParser.*;
+
+/**
+ * @author dnermolaev
+ */
 
 public class MergeSortInt<T> implements Algorithm <T> {
 
