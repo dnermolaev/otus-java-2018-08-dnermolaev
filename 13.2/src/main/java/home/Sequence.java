@@ -4,41 +4,39 @@ public class Sequence {
 
     private static int first = 0;
     private static int second = 0;
-    private boolean last = true;
-    private static int x = 1;
-    private static int y = 1;
+    private String last = "Thread 2";
 
-    private synchronized void run(int number, boolean flag) {
+    private synchronized void run(int number) {
         while (true) {
-            if (last == flag) {
+            if (last.equals(Thread.currentThread().getName())) {
                 wait(this);
 
             } else {
                 if (number == 10) {
-                    number = decrease(number, flag);
+                    number = decrease(number);
                 }
                 number++;
                 System.out.print(number + " ");
-                last = flag;
+                last = Thread.currentThread().getName();
                 sleep(1_000);
                 notify();
             }
         }
     }
 
-    int decrease(int number, boolean flag) {
+    int decrease(int number) {
         while (number >= 1) {
-            if (last == flag) {
+            if (last.equals(Thread.currentThread().getName())) {
                 wait(this);
             } else {
                 number--;
                 if (number == 1) {
                     number--;
-                    last = flag;
+                    last =Thread.currentThread().getName();
                     notify();
                 } else {
                     System.out.print(number + " ");
-                    last = flag;
+                    last =Thread.currentThread().getName();
                     sleep(1_000);
                     notify();
                 }
@@ -67,17 +65,19 @@ public class Sequence {
     public static void main(String[] args) throws InterruptedException {
         Sequence sequence = new Sequence();
         Thread t1 = new Thread(() -> {
-            System.out.print("Thread 1: ");
-            sequence.run(first, false);
+            sequence.run(first);
         });
+        t1.setName("Thread 1");
         Thread t2 = new Thread(() -> {
-            System.out.println();
-            System.out.println("Thread 2:  ");
-            sequence.run(second, true);
+            sequence.run(second);
         });
+        t2.setName("Thread 2");
 
+        System.out.print(t1.getName()+ " ");
         t1.start();
-        t1.join(1000);
+        sleep(1000);
+        System.out.println();
+        System.out.print(t2.getName()+"  ");
         t2.start();
     }
 }
